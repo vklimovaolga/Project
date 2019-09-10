@@ -15,7 +15,7 @@
                 </div>
             </div>
             <nav>
-                    <?php
+                <?php
                     if(!isset($_SESSION["user_id"])){
                         echo '
                         <a href="'. ROOT . 'access/register">Criar Nova Conta</a>
@@ -25,10 +25,8 @@
                     else {
                         echo '<a href="'. ROOT .'access/logout">Logout</a>';
                     }
-                    ?>
-                </nav>
-
-
+                ?>
+            </nav>
         </header>
         <main>
         </main>
