@@ -1,24 +1,23 @@
 <?php
-
-$controllers = ["home"];
+session_start();
+$controllers = ["home", "access", "api", "create"];
 $controller = $controllers[0];
 
 
 define("ROOT", dirname($_SERVER["SCRIPT_NAME"]). "/");
 
-// echo ROOT;
-// exit;
-
 $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
+
+// echo "<pre>";
 print_r($url_parts);
-print_r($url_parts[3]);
+
 
 if(
-    isset($url_parts[2]) && 
-    in_array($url_parts[2], $controllers)
+    isset($url_parts[3]) && 
+    in_array($url_parts[3], $controllers)
   ){
 
-  $controller = $url_parts[2];
+  $controller = $url_parts[3];
 }
 require("controllers/".$controller.".php");
 
