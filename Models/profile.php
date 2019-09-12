@@ -1,5 +1,5 @@
 <?php 
-require("base.php");
+require_once("base.php");
 
 class Profiles extends Base {
     public function create($data){

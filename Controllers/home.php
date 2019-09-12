@@ -1,6 +1,6 @@
 <?php 
   
-  require("views/home.php");
+  require_once("views/home.php");
 
 
 ?>

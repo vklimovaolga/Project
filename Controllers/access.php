@@ -1,15 +1,16 @@
 <?php 
-  require("models/users.php");
+require_once("models/users.php");
+require_once("models/profile.php");
   
   $options = ["login", "register", "logout"];
-
-
+  
+  
   if(in_array($url_parts[4], $options)) {
-
+    
     $model = new Users();
-
+    
     if(isset($_POST["send"])) {
-
+      
       if($url_parts[4] === "register") {
         
         $status = $model->register($_POST);
@@ -19,13 +20,19 @@
         }
       }
       else {
-
+        
         $status = $model->login($_POST);
+        
+        $model1 = new Profiles();
+        $data = $model1->getProfile($profile_id);
 
-        if($status){
+        if($status && $data){
 
-          header("Location: ". ROOT. "create/create");
+          header("Location: ".ROOT."create/profile");
 
+        }
+        else{
+          header("Location: ".ROOT."create/create");
         }
       }
     }

@@ -5,7 +5,7 @@
     exit;
   }
 
-  require("models/profile.php");
+  require_once("models/profile.php");
 
   $options = [ "profile", "edit", "create" ];
 
