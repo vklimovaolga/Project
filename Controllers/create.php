@@ -14,10 +14,15 @@
     if(isset($_POST["send"])){
       $model = new Profiles();
 
-      $message = $model->createProfile($_POST);
+      $message = $model->{$url_parts[4]}($_POST);
     }
     
     if($url_parts[4] === "profile"){
+      $model = new Profiles();
+      $data = $model->getProfile($url_parts[4]);
+      
+    }
+    if($url_parts[4] === "edit"){
       $model = new Profiles();
       $data = $model->getProfile($url_parts[4]);
       

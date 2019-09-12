@@ -2,7 +2,7 @@
 require("base.php");
 
 class Profiles extends Base {
-    public function createProfile($data){
+    public function create($data){
         if(
             // !empty($data["description"]) &&
             // !empty($data["url"]) &&
@@ -42,6 +42,33 @@ class Profiles extends Base {
 
         $profile = $query->fetchAll( PDO::FETCH_ASSOC );
         return $profile;
+      }
+
+      public function edit($data){
+        if(
+        //   !empty($data["description"]) && 
+        //   !empty($data["url"]) &&
+        //   mb_strlen($data["description"]) >= 10 &&
+          isset($_SESSION["user_id"])
+        ){
+    
+          $query = $this->db->prepare("
+            UPDATE profiles
+            SET description = ? , url = ?
+            WHERE user_id = ? 
+          ");
+    
+          $query->execute([
+            $data["description"],
+            $data["url"],
+            $_SESSION["user_id"]
+          ]);
+        //   header("Location: " .ROOT. "create/profile");
+
+        }
+        else {
+          return "Preencha todos os dados correctamente";
+        }
       }
 
 

@@ -32,6 +32,20 @@
         <div>
             <button type="submit" name="send">Criar</button>
         </div>
+        <nav>
+            <?php
+                if(!isset($_SESSION["user_id"])){
+                    echo '
+                    <a href="'. ROOT . 'access/register">Criar Nova Conta</a>
+                    <a href="'. ROOT .'access/login">Fazer Login</a>
+                    ';
+                }
+                else {
+                    echo '<a href="'.ROOT.'">Voltar</a> ';
+                    echo '<a href="'. ROOT .'access/logout">Logout</a>';
+                }
+            ?>
+        </nav>
     </form>
   </body>
 </html>

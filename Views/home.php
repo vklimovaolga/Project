@@ -23,6 +23,7 @@
                         ';
                     }
                     else {
+                        echo '<a href="'.ROOT.'create/create">Crear Perfil</a> ';
                         echo '<a href="'. ROOT .'access/logout">Logout</a>';
                     }
                 ?>
