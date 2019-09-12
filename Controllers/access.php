@@ -24,7 +24,7 @@
 
         if($status){
 
-          header("Location: ". ROOT. "create/profile");
+          header("Location: ". ROOT. "create/create");
 
         }
       }

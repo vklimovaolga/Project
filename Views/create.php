@@ -6,10 +6,15 @@
   </head>
   <body>  
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>" enctype="multipart/form-data">
+    <?php 
+      if(!empty($message)){
+        echo "<p>" .$message. "</p>";
+      }
+    ?>
         <div>
             <label>
                 Descrição
-                <input type="text" name="username" required>
+                <input type="text" name="description" required>
             </label>
         </div>
         <div>
@@ -25,7 +30,7 @@
             </label>
         </div> -->
         <div>
-            <button type="submit" name="send">Crear</button>
+            <button type="submit" name="send">Criar</button>
         </div>
     </form>
   </body>

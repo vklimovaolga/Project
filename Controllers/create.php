@@ -7,6 +7,22 @@
 
   require("models/profile.php");
 
-  $options = [ "profile", "edit" ];
+  $options = [ "profile", "edit", "create" ];
 
-  require("views/".$url_parts[3].".php");
+  if(in_array($url_parts[4], $options)){
+    
+    if(isset($_POST["send"])){
+      $model = new Profiles();
+
+      $message = $model->createProfile($_POST);
+    }
+    
+    if($url_parts[4] === "profile"){
+      $model = new Profiles();
+      $data = $model->getProfile($url_parts[4]);
+      
+    }
+    require("views/".$url_parts[4].".php");
+
+  }
+
