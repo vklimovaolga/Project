@@ -9,7 +9,7 @@
       foreach($data as $profile){
         echo '
           <div>
-            <div>'.$profile["username"].'</div>
+            <div>'.$data[0]["username"].'</div>
             <p>'.$profile["description"].'</p>
             <p>'.$profile["url"].'</p>
           </div>
@@ -24,6 +24,12 @@
               </div>
             ';
           }
+
+          echo '
+            <div>
+                <a href="'.ROOT.'">Voltar</a>
+            </div>
+          ';
         }
     ?>
   </body>

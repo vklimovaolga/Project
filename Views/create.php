@@ -23,12 +23,12 @@
                 <input type="text" name="url" required>
             </label>
         </div>
-        <!-- <div>
+        <div>
             <label>
                 Imagem
-                <input type="file" name="picture" accept="image/*">
+                <input type="file" name="picture">
             </label>
-        </div> -->
+        </div>
         <div>
             <button type="submit" name="send">Criar</button>
         </div>

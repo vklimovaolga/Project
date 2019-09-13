@@ -4,9 +4,9 @@ require_once("base.php");
 class Profiles extends Base {
     public function create($data){
         if(
-            // !empty($data["description"]) &&
-            // !empty($data["url"]) &&
-            // mb_strlen($data["description"]) >= 5 &&
+            !empty($data["description"]) &&
+            !empty($data["url"]) &&
+            mb_strlen($data["description"]) >= 5 &&
             isset($_SESSION["user_id"])
 
         ){
@@ -46,9 +46,9 @@ class Profiles extends Base {
 
       public function edit($data){
         if(
-        //   !empty($data["description"]) && 
-        //   !empty($data["url"]) &&
-        //   mb_strlen($data["description"]) >= 10 &&
+          !empty($data["description"]) && 
+          !empty($data["url"]) &&
+          mb_strlen($data["description"]) >= 5 &&
           isset($_SESSION["user_id"])
         ){
     
