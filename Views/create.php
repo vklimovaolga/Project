@@ -2,7 +2,8 @@
 <html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>PF</title>
+    <title>Crear Perfil</title>
+    <link rel="stylesheet" type="text/css" href="css/home.css">
   </head>
   <body>  
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>" enctype="multipart/form-data">

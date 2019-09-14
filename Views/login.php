@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Efectuar Login</title>
+    <link rel="stylesheet" type="text/css" href="css/home.css">
   </head>
   <body>
   <?php 
