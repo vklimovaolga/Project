@@ -38,13 +38,23 @@
                     <li><a href="">Seguidos</a></li>
                 </ul>
             </nav>
-            <div>
-                <div>   
-                    <img src="uploads/1.png" alt="img">
-                </div>
-                <div>   
-                    <img src="uploads/2.png" alt="img">
-                </div>
+            <div class="pic">
+                <ul>   
+                   <li><a href=""><img src="uploads/1.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/1.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                </ul>
             </div>
         </main>
         <footer>
