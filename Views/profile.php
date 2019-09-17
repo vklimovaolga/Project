@@ -5,24 +5,26 @@
     <title>Perfile </title>
     <link rel="stylesheet" type="text/css" href="css/home.css">
   </head>
-  <body>
+  <body> 
   <?php
       foreach($data as $profile){
         echo '
           <div>
+            <div><img src="/PF/Project/uploads/'.$profile["picture"].'" alt="imagem de perfil"></div>
             <div>'.$data[0]["username"].'</div>
             <p>'.$profile["description"].'</p>
             <p>'.$profile["url"].'</p>
           </div>
-          ';
+        ';
+
           if(
             isset($_SESSION["user_id"]) && 
             $profile["user_id"] === $_SESSION["user_id"]
           ){
-          echo '
-              <div>
-                <a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar</a>
-              </div>
+            echo '
+                <div>
+                  <a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar</a>
+                </div>
             ';
           }
 
