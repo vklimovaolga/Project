@@ -3,37 +3,107 @@
   <head>
     <meta charset="utf-8">
     <title>Perfile </title>
-    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/PF/Project/css/profile.css">
   </head>
-  <body> 
-  <?php
-      foreach($data as $profile){
-        echo '
-          <div>
-            <div><img src="/PF/Project/uploads/'.$profile["picture"].'" alt="imagem de perfil"></div>
-            <div>'.$data[0]["username"].'</div>
-            <p>'.$profile["description"].'</p>
-            <p>'.$profile["url"].'</p>
-          </div>
-        ';
+  <body>
+    <header>
+      <div class="menu"> 
+        <div class="logo-wrapper"> 
+            <a href="<?php echo ROOT;?>">
+                <img src="/PF/Project/img/logo1.png" alt="logo">
+            </a>
+        </div>
+        <nav>
+            <?php
+            if(!isset($_SESSION["user_id"])) {
+                echo '
+                <a href="'. ROOT .'access/register">Criar Conta</a>
+                <a href="'. ROOT .'access/login">Login</a>
+                ';
+            }
+            else {
+                // echo '<a href="'.ROOT.'create/create">Criar Perfil</a> ';
 
-          if(
-            isset($_SESSION["user_id"]) && 
-            $profile["user_id"] === $_SESSION["user_id"]
-          ){
-            echo '
-                <div>
-                  <a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar</a>
+                // echo '<a href="'.ROOT.'create/profile">Perfil</a> ';
+                foreach ($data as $profile) {
+                  if(
+                    isset($_SESSION["user_id"]) && 
+                    $profile["user_id"] === $_SESSION["user_id"]
+                  ){
+                    echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
+                  }
+                }
+                
+                echo '<a href="'. ROOT .'access/logout">Logout</a>';
+            }
+            ?>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrapper-profile">
+        <?php
+            foreach($data as $profile){
+              echo '
+                <div class="profile-container">
+                  <div class="profile-picture">
+                    <img src="/PF/Project/uploads/'.$profile["picture"].'" alt="imagem de perfil">
+                  </div>
+                  <h1>'.$data[0]["username"].'</h1>
+                  <p>'.$profile["description"].'</p>
+                  <p>'.$profile["url"].'</p>
                 </div>
-            ';
-          }
+              ';
 
-          echo '
-            <div>
-                <a href="'.ROOT.'">Voltar</a>
-            </div>
-          ';
-        }
-    ?>
+              // if(
+              //   isset($_SESSION["user_id"]) && 
+              //   $profile["user_id"] === $_SESSION["user_id"]
+              // ){
+              //   echo '
+              //       <div class="edit">
+              //         <a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>
+              //       </div>
+              //   ';
+              // }
+
+              // echo '
+              //   <div>
+              //       <a href="'.ROOT.'">Voltar</a>
+              //   </div>
+              // ';
+              }
+          ?>
+      </div>
+      <nav class="nav-data">
+        <ul>
+          <li><a href="">Portfolio</a></li>
+          <li><a href="">Likes</a></li>
+          <li><a href="">Following</a></li>
+          <li><a href="">Followers</a></li>
+        </ul>
+      </nav>
+      <div class="pic">
+        <ul>   
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+          <ul>
+              <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
+              <li><a href="">Sobre</a></li>
+              <li><a href="">Declaração de Privacidade</a></li>
+              <li><a href="">Termos de Serviço</a></li>
+          </ul>
+      </div>
+    </footer>
   </body>
 </html>

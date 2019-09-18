@@ -22,14 +22,14 @@ require_once("models/profile.php");
       else {
         
         $status = $model->login($_POST);
-        
+      
         $model1 = new Profiles();
         $data = $model1->getProfile($profile_id);
-
+        
         if($status && $data){
-
+          
           header("Location: ".ROOT."create/profile");
-
+          
         }
         else{
           header("Location: ".ROOT."create/create");

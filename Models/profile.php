@@ -13,12 +13,12 @@ class Profiles extends Base {
             !empty($data["description"]) &&
             !empty($data["url"]) &&
             mb_strlen($data["description"]) >= 5 &&
-            isset($_SESSION["user_id"]) 
-            // isset($_FILES["picture"]) &&
-            // $_FILES["picture"]["size"] > 0 &&
-             // $_FILES["picture"]["size"] <= 2000000 &&
-            // $_FILES["picture"]["error"] === 0 &&
-            // in_array($_FILES["picture"]["type"], $allowed_types)
+            isset($_SESSION["user_id"]) &&
+            isset($_FILES["picture"]) &&
+            $_FILES["picture"]["size"] > 0 &&
+            //  $_FILES["picture"]["size"] <= 2000000 &&
+            $_FILES["picture"]["error"] === 0 &&
+            in_array($_FILES["picture"]["type"], $allowed_types)
 
         ){
             $file_extension = array_search($_FILES["picture"]["type"],$allowed_types);

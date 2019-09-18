@@ -128,8 +128,9 @@ main {
 }
 
 .pic {
-    width: 100vw;
-    margin: 0 auto;
+    /* width: 100vw;
+    margin: 0 auto; */
+    text-align: center;
     padding: 0px 20px 0px 20px;
 }
 
@@ -166,7 +167,7 @@ main img {
     background-color: #222;
     color: #f1f1f1;
     font-size: 1.3rem;
-    position:fixed;
+    /* position:fixed; */
     left:0px;
     bottom:0px;
     width:100%;
