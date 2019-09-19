@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Editar Perfil </title>
-    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
   </head>
   <body>
     <?php 

@@ -2,7 +2,7 @@
 <html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>Perfile </title>
+    <title>Perfil</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/profile.css">
   </head>
@@ -95,15 +95,5 @@
         </ul>
       </div>
     </main>
-    <footer>
-      <div class="footer">
-          <ul>
-              <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
-              <li><a href="">Sobre</a></li>
-              <li><a href="">Declaração de Privacidade</a></li>
-              <li><a href="">Termos de Serviço</a></li>
-          </ul>
-      </div>
-    </footer>
   </body>
 </html>
