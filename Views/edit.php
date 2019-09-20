@@ -69,7 +69,7 @@
         <div>
           <input type="hidden" name="profile_id" value="<?php echo $data[0]["profile_id"];?>">
           <button type="submit" name="send">Salvar</button>
-          <button type="button" name="send">Voltar</button>
+          <a href="<?php echo ROOT;?>">Voltar</a>
         </div>
       </form>
       <!-- <nav> 

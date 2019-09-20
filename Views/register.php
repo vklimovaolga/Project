@@ -43,7 +43,7 @@
         <div class="buttonw">
             <button type="submit" name="send">Registar</button>
       
-            <button type="button" name="button">Voltar</button>
+            <a href="<?php echo ROOT;?>">Voltar</a>
         </div>
       </form>
 

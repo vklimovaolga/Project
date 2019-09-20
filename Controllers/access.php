@@ -8,8 +8,9 @@ require_once("models/profile.php");
   if(in_array($url_parts[4], $options)) {
     
     $model = new Users();
-    
-    if(isset($_POST["send"])) {
+     
+    if(isset($_POST["send"]) ) {
+
       
       if($url_parts[4] === "register") {
         
