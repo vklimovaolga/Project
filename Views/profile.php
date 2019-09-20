@@ -23,9 +23,6 @@
                 ';
             }
             else {
-                // echo '<a href="'.ROOT.'create/create">Criar Perfil</a> ';
-
-                // echo '<a href="'.ROOT.'create/profile">Perfil</a> ';
                 foreach ($data as $profile) {
                   if(
                     isset($_SESSION["user_id"]) && 
@@ -55,17 +52,6 @@
                   <p>'.$profile["url"].'</p>
                 </div>
               ';
-
-              // if(
-              //   isset($_SESSION["user_id"]) && 
-              //   $profile["user_id"] === $_SESSION["user_id"]
-              // ){
-              //   echo '
-              //       <div class="edit">
-              //         <a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>
-              //       </div>
-              //   ';
-              // }
 
               // echo '
               //   <div>
