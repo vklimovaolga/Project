@@ -23,8 +23,16 @@
                         ';
                     }
                     else {
+                        foreach ($data as $profile) {
+                            if(
+                              isset($_SESSION["user_id"]) && 
+                              !$profile["user_id"] === $_SESSION["user_id"]
+                            ){
+                                echo '<a href="'.ROOT.'create/create">Criar Perfil</a> ';
+                              
+                            }
+                          }
                     
-                        echo '<a href="'.ROOT.'create/create">Criar Perfil</a> ';
 
 
                         echo '<a href="'.ROOT.'create/profile">Perfil</a> ';
