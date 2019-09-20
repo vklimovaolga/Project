@@ -23,11 +23,13 @@
                 ';
             }
             else {
-                foreach ($data as $profile) {
-                  if(
-                    isset($_SESSION["user_id"]) && 
-                    $profile["user_id"] === $_SESSION["user_id"]
+              
+              foreach ($data as $profile) {
+                if(
+                  isset($_SESSION["user_id"]) && 
+                  $profile["user_id"] === $_SESSION["user_id"]
                   ){
+                    echo '<a href="'.ROOT .'posts/create_post">Criar Post</a>'; 
                     echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
                   }
                 }
@@ -70,8 +72,14 @@
         </ul>
       </nav>
       <div class="pic">
-        <ul>   
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
+        <ul>  
+          <?php
+              foreach($data as $post){
+                echo '';
+              }
+          
+          ?>
+            <li><a href=""><img src="/PF/Project/post_uploads/1.png" alt="img"></a></li>
             <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
             <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
             <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>

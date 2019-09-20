@@ -7,8 +7,7 @@ class Profiles extends Base {
       "jpg" => "image/jpeg",
       "png" => "image/png"
     ];
-
-  
+    
       if(
           !empty($data["description"]) &&
           !empty($data["url"]) &&

@@ -32,9 +32,7 @@
                               
                             }
                           }
-                    
-
-
+                
                         echo '<a href="'.ROOT.'create/profile">Perfil</a> ';
                         
                         echo '<a href="'. ROOT .'access/logout">Logout</a>';
