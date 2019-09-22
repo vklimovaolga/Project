@@ -74,18 +74,12 @@
       <div class="pic">
         <ul>  
           <?php
-              foreach($data as $post){
-                echo '';
+              foreach($posts as $post){
+                echo '
+                  <li><a href=""><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="img"></a></li>
+                ';
               }
-          
           ?>
-            <li><a href=""><img src="/PF/Project/post_uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
-            <li><a href=""><img src="/PF/Project/uploads/1.png" alt="img"></a></li>
         </ul>
       </div>
     </main>
