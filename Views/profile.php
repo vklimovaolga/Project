@@ -5,6 +5,10 @@
     <title>Perfil</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/profile.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+<!-- jQuery Modal -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
   </head>
   <body>
     <header>
@@ -43,6 +47,10 @@
     <main>
       <div class="wrapper-profile">
         <?php
+          if(
+            isset($_SESSION["user_id"]) && 
+            $profile["user_id"] === $_SESSION["user_id"]
+            ){
             foreach($data as $profile){
               echo '
                 <div class="profile-container">
@@ -54,13 +62,8 @@
                   <p>'.$profile["url"].'</p>
                 </div>
               ';
-
-              // echo '
-              //   <div>
-              //       <a href="'.ROOT.'">Voltar</a>
-              //   </div>
-              // ';
-              }
+            }
+          }
           ?>
       </div>
       <nav class="nav-data">
@@ -74,12 +77,18 @@
       <div class="pic">
         <ul>  
           <?php
+          // if(
+          //   isset($_SESSION["user_id"]) && 
+          //   $profile["user_id"] === $_SESSION["user_id"]
+          //   ){
               foreach($posts as $post){
                 echo '
-                  <li><a href=""><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="img"></a></li>
+                  <li><a href="'.ROOT.'posts/view_post/'.$post["post_id"].'"><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="img"></a></li>
                 ';
               }
+            // }
           ?>
+          <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">
         </ul>
       </div>
     </main>

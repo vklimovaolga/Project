@@ -72,9 +72,6 @@
           <a href="<?php echo ROOT;?>">Voltar</a>
         </div>
       </form>
-      <!-- <nav> 
-        <a href="<?php echo ROOT."create/profile";?>">Voltar</a>
-      </nav> -->
     </main>
     <footer>
         <div class="footer">

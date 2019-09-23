@@ -41,6 +41,23 @@ class Profiles extends Base {
           return "Preencha os campos";
       }
   }
+  public function get($data){
+    $query= $this->db->prepare("
+      SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
+      FROM profiles AS p 
+      INNER JOIN users AS u USING(user_id)
+      WHERE p.user_id = ? OR p.profile_id = ?
+    ");
+
+    $query->execute([
+      $data,
+      $data
+    ]);
+
+    $profile = $query->fetchAll( PDO::FETCH_ASSOC );
+    return $profile;
+
+  }
 
   public function getProfile($profile_id){
       $query= $this->db->prepare("
