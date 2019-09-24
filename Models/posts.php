@@ -117,6 +117,37 @@ require_once("base.php");
             return "Preencha os campos";
         }
     }
+
+    public function deletePost($post_id) {
+
+        $query = $this->db->prepare("
+            DELETE FROM posts
+            WHERE post_id = ?
+                AND user_id = ?
+        ");
+
+        $result = $query->execute([
+            $post_id,
+            $_SESSION["user_id"]
+        ]);
+
+        if($result){
+            return json_encode([
+                "status" => "Ok",
+                "message" => "Processo concluido com sucesso"
+            ]);
+            
+        }
+        else{
+            return json_encode([
+                "status" => "Error",
+                "message" => "Ocorreu um erro a apagar o post"
+            ]);
+
+        }
+
+
+    }
  }
 
  

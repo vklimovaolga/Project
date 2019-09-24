@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Editar Perfil </title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
+    <script src="/PF/Project/js/scripts.js"></script>
   </head>
   <body>
     <header>
@@ -28,6 +29,8 @@
                           $post["user_id"] === $_SESSION["user_id"]
                         ){
                           echo '<a href="'.ROOT.'posts/edit_post/'.$post["post_id"].'">Editar Post</a>';
+                          echo '<a href="'.ROOT.'posts/delete_post/'.$post["post_id"].'">delete</a>';
+                          
                         }
                       }
                     echo '<a href="'. ROOT .'create/profile">Perfil</a>';
@@ -35,10 +38,13 @@
                     echo '<a href="'. ROOT .'access/logout">Logout</a>';
                 }
             ?>
+            
             </nav>
         </div>
     </header>
     <main>
+        <button type="button" name="delete" id="deleteB" value="<?php echo $data[0]["post_id"];?>">DELETEEEEE</button>
+        <button type="button" name="delete" id="delete2" value="<?php echo $data[0]["post_id"];?>">DELETEEEEE</button>
         <h1><?php echo $data[0]["title"];?></h1>
         <img src="/PF/Project/post_uploads/<?php echo $data[0]["image"];?>" alt="img">
         <h2><?php echo $data[0]["username"];?></h2>
