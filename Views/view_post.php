@@ -15,6 +15,7 @@
                 </a>
             </div>
             <nav>
+            <button type="button" name="delete" id="deleteB" value="<?php echo $data[0]["post_id"];?>">Apagar Post</button>
             <?php
                 if(!isset($_SESSION["user_id"])) {
                     echo '
@@ -28,9 +29,7 @@
                           isset($_SESSION["user_id"]) &&
                           $post["user_id"] === $_SESSION["user_id"]
                         ){
-                          echo '<a href="'.ROOT.'posts/edit_post/'.$post["post_id"].'">Editar Post</a>';
-                          echo '<a href="'.ROOT.'posts/delete_post/'.$post["post_id"].'">delete</a>';
-                          
+                          echo '<a href="'.ROOT.'posts/edit_post/'.$post["post_id"].'">Editar Post</a>';                          
                         }
                       }
                     echo '<a href="'. ROOT .'create/profile">Perfil</a>';
@@ -38,21 +37,17 @@
                     echo '<a href="'. ROOT .'access/logout">Logout</a>';
                 }
             ?>
-            
             </nav>
         </div>
     </header>
     <main>
-        <button type="button" name="delete" id="deleteB" value="<?php echo $data[0]["post_id"];?>">DELETEEEEE</button>
-        <button type="button" name="delete" id="delete2" value="<?php echo $data[0]["post_id"];?>">DELETEEEEE</button>
         <h1><?php echo $data[0]["title"];?></h1>
         <img src="/PF/Project/post_uploads/<?php echo $data[0]["image"];?>" alt="img">
         <h2><?php echo $data[0]["username"];?></h2>
         <img src="/PF/Project/uploads/<?php echo $data[0]["picture"];?>" alt="img">
         <p><?php echo $data[0]["description"];?></p>
-
-
         <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">
     </main>
   </body>
 </html>
+
