@@ -8,6 +8,7 @@ if(!isset($_SESSION["user_id"])) {
 
 require_once("models/posts.php");
 require_once("models/profile.php");
+require_once("models/comments.php");
 
 $options = ["create_post", "edit_post", "view_post", "delete_post"];
 
@@ -23,6 +24,12 @@ if(in_array($url_parts[4], $options)) {
         $model = new Post();
         if(isset($url_parts[5])) {
             $data = $model->getPost($url_parts[5]);
+            if(isset($_POST["send"])){
+                $model = new Comment();
+                $message = $model->createComment($_POST);
+            }
+            $model = new Comment();
+            $comments = $model->getComments($url_parts[4]);
         }
     }
     

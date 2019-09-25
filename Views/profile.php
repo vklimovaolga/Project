@@ -5,10 +5,6 @@
     <title>Perfil</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/profile.css">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
-<!-- jQuery Modal -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
   </head>
   <body>
     <header>

@@ -1,0 +1,49 @@
+.post-wrapper {
+    width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    
+}
+h1 {
+    font-size: 4rem;
+    color: #f1f1f1;
+    padding: 30px;
+}
+
+h2 {
+    font-size: 3rem;
+    color: #7ac043;
+    padding: 20px 0;
+}
+.description {
+    color: #f1f1f1;
+    font-size: 2rem;
+    margin: 40px;
+}
+.post-wleft {
+    width: 1000px;
+}
+
+.post-wleft img{
+    width: 50vw;
+
+}
+.post-wright {
+    width: 500px;
+    margin-left: 50px;
+    background-color: #79c04318;
+   
+}
+.post-wsright {
+    display: flex;
+    margin: 100px 0px 50px 50px;
+    /* background-color: #f1f1f1; */
+
+}
+.post-wsright img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+

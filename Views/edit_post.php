@@ -6,11 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
   </head>
   <body>
-  <?php 
-        if(!empty($message)){
-          echo "<p>" .$message. "</p>";
-        }
-      ?>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>" enctype="multipart/form-data">
         <div>
             <label>
