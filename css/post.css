@@ -31,7 +31,7 @@ h2 {
 .post-wright {
     width: 500px;
     margin-left: 50px;
-    background-color: #79c04318;
+    background-color: #a7c09318;
    
 }
 .post-wsright {
@@ -47,18 +47,41 @@ h2 {
     margin-right: 20px;
 }
 
+form {
+    display: flex;
+    padding: 20px;
+}
+form div label {
+    font-size: 1.9rem;
+    margin-right: 20px;
+}
+form div label input[type="text"] {
+    width: 240px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #171717;
+    margin-left: 5px;
+}
+.form-button {
+    background-color: #7ac043;
+    font-size: 1.4rem;
+    color: #f1f1f1;
+    padding: 10px 15px 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #4f7c2c;
+}
+
 #modal {
     display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
     left: 600px;
     top: 200px;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    /* background-color: rgb(0,0,0); Fallback color */
-    /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+
 }
 
 #modal div{
@@ -68,3 +91,47 @@ h2 {
     color: black;
 }
 
+.comment-wrapper{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+#comment-info {
+    border-top: 1px solid #171717;
+    padding: 0px 20px 0px 20px;
+}
+#comment-info p{
+    margin: 20px 0px 20px 0px;
+    font-size: 1.9rem;
+    
+    
+}
+
+.comment-username {
+    color: #7ac043;
+    font-size: 2.5rem;
+}
+
+.comment-button-wrapper {
+    margin: 20px;
+}
+
+.comment-button-wrapper button {
+    font-size: 1.4rem;
+    color: #f1f1f1;
+    padding: 10px 20px 10px 20px;
+    border-radius: 4px;
+}
+
+#editButton {
+    background-color: gray;
+    border: 1px solid rgb(53, 50, 50);
+    margin-right: 20px;
+    
+}
+
+#deleteComment {
+    background-color: rgba(255, 0, 0, 0.384);
+    border: 1px solid rgb(65, 10, 10);
+}

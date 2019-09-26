@@ -64,7 +64,7 @@
               </div>
               <div>
                 <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">
-                <button type="submit" name="send">Publicar</button>
+                <button type="submit" name="send" class="form-button">Publicar</button>
               </div>
           </form>
           <?php 
@@ -74,24 +74,27 @@
 
             foreach ($comments as $comment) {
               echo ' 
-                <div id="comment-info" data-comment_id="'.$comment["comment_id"].'">
-                  <div>'.$comment["username"].'</div>
-                  <div>'.strftime("%e %b %Y - %H:%M", strtotime($comment["post_date"])).'</div>
-                  <p id="text">'.$comment["message"].'</p>
-                </div>
+                  <div id="comment-info" data-comment_id="'.$comment["comment_id"].'">
+                    <div class="comment-wrapper">
+                      <div class="comment-username">'.$comment["username"].'</div>
+                      <div>'.strftime("%e %b %Y - %H:%M", strtotime($comment["post_date"])).'</div>
+                    </div>
+                    <p id="text">'.$comment["message"].'</p>
+                  </div>
               '; 
+
               if(isset($_SESSION["user_id"]) && $comment["user_id"] === $_SESSION["user_id"]){
                 echo '
-                  <div>
-                    <button type="button" name="edit" id="editButton">Editar</button>
-                    <button type="button" name="delete" id="deleteComment">Apagar</button>
-                  </div>
+                    <div class="comment-button-wrapper">
+                      <button type="button" name="edit" id="editButton">Editar</button>
+                      <button type="button" name="delete" id="deleteComment">Apagar</button>
+                    </div>
                 ';
               }                         
             } 
           ?>
           <div id="modal">
-              <div >
+              <div>
                 <label>
                   Comentario
                   <input type="text" name="message" id="new-comment">
@@ -102,8 +105,6 @@
                 <button type="button" name="cancel" id="cancelButton">Cancelar</button>
               </div>
           </div>
-          <!-- <img src="/PF/Project/uploads/<?php echo $data[0]["picture"];?>" alt="img">
-          <h2><?php echo $data[0]["username"];?></h2> -->
         </div>
       </div>
       <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">
