@@ -13,7 +13,7 @@ h1 {
 h2 {
     font-size: 3rem;
     color: #7ac043;
-    padding: 20px 0;
+    padding: 30px;
 }
 .description {
     color: #f1f1f1;
@@ -44,6 +44,7 @@ h2 {
     border-radius: 100%;
     width: 100px;
     height: 100px;
+    margin-top: 30px;
     margin-right: 20px;
 }
 

@@ -83,14 +83,13 @@ document.addEventListener("DOMContentLoaded", () =>{
         });
     }
 
-    const deleteComment = document.querySelector("#deleteComment");
-    const deleteCommentField = deleteComment.parentNode.previousElementSibling.dataset.comment_id;
-
-    function deleteCommentConfirm() {
+    const deleteComment = document.querySelectorAll("#deleteComment");
+    
+    function deleteCommentConfirm(deleteCommentField) {
         let confirmm = confirm("Quer mesmo apagar?");
-
+        
         if(confirmm){
-           
+            
             fetch("../delete_comment/"+deleteCommentField, {
                 method: "DELETE", 
                 mode: "same-origin", 
@@ -104,17 +103,22 @@ document.addEventListener("DOMContentLoaded", () =>{
                 body: "",
             })
             .then(response => response.json()).then(
-                // redirect => {
-                    
-                // }
+                
+                    // window.location.reload() 
             ) 
         }
     }
 
-    deleteComment.addEventListener("click", () => {
-        deleteCommentConfirm();
+    for(let i = 0; i < deleteComment.length; i++){
+        
+        deleteComment[i].addEventListener("click", () => {
+            
+            let deleteCommentField = deleteComment[i].parentNode.previousElementSibling.dataset.comment_id;
 
-    });
+            deleteCommentConfirm(deleteCommentField);
+
+        });
+    }
 
 
 

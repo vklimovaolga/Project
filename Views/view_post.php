@@ -68,9 +68,9 @@
               </div>
           </form>
           <?php 
-            if(!empty($message)){
-              echo "<p>" .$message. "</p>";
-            }
+            // if(!empty($message)){
+            //   echo "<p>" .$message. "</p>";
+            // }
 
             foreach ($comments as $comment) {
               echo ' 
