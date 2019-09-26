@@ -1,16 +1,16 @@
 <?php 
 
-if(!isset($_SESSION["user_id"])) {
+// if(!isset($_SESSION["user_id"])) {
     
-    header("Location: ".ROOT." access/login");
-    exit;
-}
+//     header("Location: ".ROOT." access/login");
+//     exit;
+// }
 
 require_once("models/posts.php");
 require_once("models/profile.php");
 require_once("models/comments.php");
 
-$options = ["create_post", "edit_post", "view_post", "delete_post"];
+$options = ["create_post", "edit_post", "view_post", "delete_post", "edit_comment"];
 
 if(in_array($url_parts[4], $options)) {
     
@@ -28,9 +28,17 @@ if(in_array($url_parts[4], $options)) {
                 $model = new Comment();
                 $message = $model->createComment($_POST);
             }
+            
             $model = new Comment();
-            $comments = $model->getComments($url_parts[4]);
+            $comments = $model->getComments($url_parts[5]);
         }
+    }
+
+    if($url_parts[4] === "edit_comment" && isset($_SESSION["user_id"])) {
+        $modal = new Comment();
+        $response = $modal->editComment($url_parts[5], $url_parts[5]);
+        die($response);
+
     }
     
     if($url_parts[4] === "edit_post") {

@@ -68,20 +68,51 @@
               </div>
           </form>
           <?php 
-            // if(!empty($message)){
-            //   echo "<p>" .$message. "</p>";
-            // }
+            if(!empty($message)){
+              echo "<p>" .$message. "</p>";
+            }
 
             foreach ($comments as $comment) {
               echo ' 
-                <div>
+                <div id="comment-info" data-comment_id="'.$comment["comment_id"].'">
                   <div>'.$comment["username"].'</div>
                   <div>'.strftime("%e %b %Y - %H:%M", strtotime($comment["post_date"])).'</div>
-                  <p>'.$comment["message"].'</p>
+                  <p id="text">'.$comment["message"].'</p>
                 </div>
-              ';                          
+              '; 
+              if(isset($_SESSION["user_id"]) && $comment["user_id"] === $_SESSION["user_id"]){
+                echo '
+                  <div>
+                    <button type="button" name="edit" id="editButton">Editar</button>
+                  </div>
+                ';
+              }                         
             } 
           ?>
+          <div id="modal">
+              <div >
+                <label>
+                  Comentario
+                  <?php 
+                    // foreach ($comments as $commentt) {
+                    //   if(isset($_SESSION["user_id"]) && 
+                    //   $commentt["user_id"] === $_SESSION["user_id"] &&
+                    //   $comment["comment_id"]===$commentt["comment_id"]
+                    //   ){
+                    //   echo '
+                    //   <input type="text" name="message" id="new-comment" value="'.$commentt["message"].'" >
+                    //   ';}
+                    // }
+                  ?>
+                  <input type="text" name="message" id="new-comment">
+                </label>
+              </div>
+              <div>
+                <!-- <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>"> -->
+                <button type="submit" name="edit" id="confirmButton">Publicar</button>
+                <button type="button" name="cancel" id="cancelButton">Cancelar</button>
+              </div>
+          </div>
           <!-- <img src="/PF/Project/uploads/<?php echo $data[0]["picture"];?>" alt="img">
           <h2><?php echo $data[0]["username"];?></h2> -->
         </div>
