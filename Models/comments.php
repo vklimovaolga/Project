@@ -60,4 +60,19 @@ require_once("base.php");
             $_SESSION["user_id"]
         ]);
     }
+    public function deleteComment($comment_id) {
+        $query = $this->db->prepare("
+            DELETE FROM comments
+            WHERE comment_id = ?
+                AND user_id = ?
+        ");
+
+        $query->execute([
+            $comment_id,
+            $_SESSION["user_id"]
+        ]);
+    }
+
+
+    
 }

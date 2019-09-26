@@ -10,7 +10,7 @@ require_once("models/posts.php");
 require_once("models/profile.php");
 require_once("models/comments.php");
 
-$options = ["create_post", "edit_post", "view_post", "delete_post", "edit_comment"];
+$options = ["create_post", "edit_post", "view_post", "delete_post", "edit_comment", "delete_comment"];
 
 if(in_array($url_parts[4], $options)) {
     
@@ -40,6 +40,13 @@ if(in_array($url_parts[4], $options)) {
         die($response);
 
     }
+    if($url_parts[4] === "delete_comment" && isset($_SESSION["user_id"])) {
+        $modal = new Comment();
+        $response = $modal->deleteComment($url_parts[5]);
+        die($response);
+        
+
+    }
     
     if($url_parts[4] === "edit_post") {
         $model = new Post();
@@ -59,7 +66,6 @@ if(in_array($url_parts[4], $options)) {
         if(isset($url_parts[5])) {
             $response = $model->deletePost($url_parts[5]);
             die($response);
-            header("Location: " .ROOT);
         }
  
     }

@@ -36,6 +36,17 @@ document.addEventListener("DOMContentLoaded", () =>{
         deleteConfirm();
     });
     
+    cancelButton.addEventListener("click", (e) => {
+        modal.style.display = "none";
+        window.location.reload();
+        
+    });
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
     
     let newComment = document.querySelector("#new-comment");
     
@@ -43,17 +54,16 @@ document.addEventListener("DOMContentLoaded", () =>{
         
         editButton[i].addEventListener("click", () => {
             modal.style.display = "block";
+            
             let oldComment = editButton[i].parentNode.previousElementSibling.lastElementChild;
             let commentID = editButton[i].parentNode.previousElementSibling.dataset.comment_id;
-           
-            
             newComment.value = oldComment.textContent;
             
-            // console.log(newss);
             confirmButton.addEventListener("click", () => {
-                let newss = newComment.value;
                 
-                fetch("../edit_comment/"+commentID+"/"+newss, {
+                let finalComment = newComment.value;
+                
+                fetch("../edit_comment/"+commentID+"/"+finalComment, {
                     method: "POST", 
                     mode: "same-origin", 
                     cache: "no-cache",
@@ -63,53 +73,52 @@ document.addEventListener("DOMContentLoaded", () =>{
                     },
                     redirect: "follow", 
                     referrer: "no-referrer", 
-                    body: "comment_id="+commentID+"&message="+newss+"",
+                    body: "comment_id="+commentID+"&message="+finalComment+"",
                 })
-                .then(response => response.json())
-                    
-                });
-            });
-        }
-        cancelButton.addEventListener("click", () => {
-            modal.style.display = "none";
-            
-        });
-        
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
+                .then(response => response.json() )
+                
                 modal.style.display = "none";
-            }
+               
+            });
+        });
+    }
+
+    const deleteComment = document.querySelector("#deleteComment");
+    const deleteCommentField = deleteComment.parentNode.previousElementSibling.dataset.comment_id;
+
+    function deleteCommentConfirm() {
+        let confirmm = confirm("Quer mesmo apagar?");
+
+        if(confirmm){
+           
+            fetch("../delete_comment/"+deleteCommentField, {
+                method: "DELETE", 
+                mode: "same-origin", 
+                cache: "no-cache",
+                credentials: "same-origin", 
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                redirect: "follow", 
+                referrer: "no-referrer", 
+                body: "",
+            })
+            .then(response => response.json()).then(
+                // redirect => {
+                    
+                // }
+            ) 
         }
-        
-      
-    // confirmButton.addEventListener("click", () => {
-    //     const commentInfo = document.getElementById("comment-info");
-    //     const commentID = commentInfo.dataset.comment_id;
-        
-    //     fetch("../edit_comment/"+commentID, {
-    //         method: "POST", 
-    //         mode: "same-origin", 
-    //         cache: "no-cache",
-    //         credentials: "same-origin", 
-    //         headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded",
-    //         },
-    //         redirect: "follow", 
-    //         referrer: "no-referrer", 
-    //         body: "comment_id="+commentID+"&message="+newComment+"",
-    //     })
-    //     .then(response => response.json())
-        
-    // });
-    console.log(newComment);
-  
+    }
+
+    deleteComment.addEventListener("click", () => {
+        deleteCommentConfirm();
+
+    });
 
 
 
 
-    
 
-
-
+ 
 });

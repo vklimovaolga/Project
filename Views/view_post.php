@@ -84,6 +84,7 @@
                 echo '
                   <div>
                     <button type="button" name="edit" id="editButton">Editar</button>
+                    <button type="button" name="delete" id="deleteComment">Apagar</button>
                   </div>
                 ';
               }                         
@@ -93,22 +94,10 @@
               <div >
                 <label>
                   Comentario
-                  <?php 
-                    // foreach ($comments as $commentt) {
-                    //   if(isset($_SESSION["user_id"]) && 
-                    //   $commentt["user_id"] === $_SESSION["user_id"] &&
-                    //   $comment["comment_id"]===$commentt["comment_id"]
-                    //   ){
-                    //   echo '
-                    //   <input type="text" name="message" id="new-comment" value="'.$commentt["message"].'" >
-                    //   ';}
-                    // }
-                  ?>
                   <input type="text" name="message" id="new-comment">
                 </label>
               </div>
               <div>
-                <!-- <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>"> -->
                 <button type="submit" name="edit" id="confirmButton">Publicar</button>
                 <button type="button" name="cancel" id="cancelButton">Cancelar</button>
               </div>
