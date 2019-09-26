@@ -36,7 +36,7 @@ if(in_array($url_parts[4], $options)) {
 
     if($url_parts[4] === "edit_comment" && isset($_SESSION["user_id"])) {
         $modal = new Comment();
-        $response = $modal->editComment($url_parts[5], $url_parts[5]);
+        $response = $modal->editComment($url_parts[5],$url_parts[6]);
         die($response);
 
     }

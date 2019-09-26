@@ -42,30 +42,30 @@ document.addEventListener("DOMContentLoaded", () =>{
     for(let i = 0; i< editButton.length; i++) {
         
         editButton[i].addEventListener("click", () => {
-            let oldComment = editButton[i].parentNode.previousElementSibling.lastElementChild;
             modal.style.display = "block";
+            let oldComment = editButton[i].parentNode.previousElementSibling.lastElementChild;
+            let commentID = editButton[i].parentNode.previousElementSibling.dataset.comment_id;
+           
             
-                newComment.value = oldComment.textContent;
+            newComment.value = oldComment.textContent;
+            
+            // console.log(newss);
+            confirmButton.addEventListener("click", () => {
                 let newss = newComment.value;
-                // console.log(newss);
-
-                confirmButton.addEventListener("click", () => {
-                    const commentInfo = document.getElementById("comment-info");
-                    const commentID = commentInfo.dataset.comment_id;
-                    
-                    fetch("../edit_comment/"+commentID+"&"+newss, {
-                        method: "POST", 
-                        mode: "same-origin", 
-                        cache: "no-cache",
-                        credentials: "same-origin", 
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                        },
-                        redirect: "follow", 
-                        referrer: "no-referrer", 
-                        body: "comment_id="+commentID+"&message="+newss+"",
-                    })
-                    .then(response => response.json())
+                
+                fetch("../edit_comment/"+commentID+"/"+newss, {
+                    method: "POST", 
+                    mode: "same-origin", 
+                    cache: "no-cache",
+                    credentials: "same-origin", 
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", 
+                    referrer: "no-referrer", 
+                    body: "comment_id="+commentID+"&message="+newss+"",
+                })
+                .then(response => response.json())
                     
                 });
             });
