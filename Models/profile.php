@@ -28,7 +28,7 @@ class Profiles extends Base {
           ");
 
           $query->execute([
-            $data["description"],
+            ucfirst($data["description"]),
             $data["url"],
             $_SESSION["user_id"]
             ]);
@@ -41,6 +41,7 @@ class Profiles extends Base {
           return "Preencha os campos";
       }
   }
+
   public function get($data){
     $query= $this->db->prepare("
       SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
@@ -102,7 +103,7 @@ class Profiles extends Base {
         ");
   
         $query->execute([
-          $data["description"],
+          ucfirst($data["description"]),
           $data["url"],
           $_SESSION["user_id"]
         ]);

@@ -61,8 +61,8 @@ require_once("base.php");
             ");
 
             $query->execute([
-                $data["title"],
-                $data["description"],
+                ucfirst($data["title"]),
+                ucfirst($data["description"]),
                 $_SESSION["user_id"]
             ]);
 
@@ -102,8 +102,8 @@ require_once("base.php");
             ");
 
             $query->execute([
-                $data["title"],
-                $data["description"],
+                ucfirst($data["title"]),
+                ucfirst($data["description"]),
                 $data["post_id"],
                 $_SESSION["user_id"]
             ]);

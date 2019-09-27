@@ -51,7 +51,7 @@
       <div class="post-wright">
         <div class="post-wsright">
           <img src="/PF/Project/uploads/<?php echo $data[0]["picture"];?>" alt="img">
-          <h2><?php echo $data[0]["username"];?></h2>
+          <h2><?php echo ucfirst($data[0]["username"]);?></h2>
         </div>
         <p class="description"><?php echo $data[0]["description"];?></p>
         <div>
@@ -76,7 +76,7 @@
               echo ' 
                   <div id="comment-info" data-comment_id="'.$comment["comment_id"].'">
                     <div class="comment-wrapper">
-                      <div class="comment-username">'.$comment["username"].'</div>
+                      <div class="comment-username">'.ucfirst($comment["username"]).'</div>
                       <div>'.strftime("%e %b %Y - %H:%M", strtotime($comment["post_date"])).'</div>
                     </div>
                     <p id="text">'.$comment["message"].'</p>

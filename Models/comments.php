@@ -21,7 +21,6 @@ require_once("base.php");
 
     }
     
-
     public function createComment($data) {
         if(
             !empty($data["message"]) &&
@@ -33,7 +32,7 @@ require_once("base.php");
                 VALUES (?, ? , ?)
             ");
             $query->execute([
-                $data["message"],
+                ucfirst($data["message"]),
                 $data["post_id"],
                 $_SESSION["user_id"]
             ]);

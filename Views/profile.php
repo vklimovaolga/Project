@@ -53,8 +53,8 @@
                   <div class="profile-picture">
                     <img src="/PF/Project/uploads/'.$profile["picture"].'" alt="imagem de perfil">
                   </div>
-                  <h1>'.$data[0]["username"].'</h1>
-                  <p>'.$profile["description"].'</p>
+                  <h1>'.ucfirst($data[0]["username"]).'</h1>
+                  <p>'.ucfirst($profile["description"]).'</p>
                   <p>'.$profile["url"].'</p>
                 </div>
               ';
@@ -73,16 +73,11 @@
       <div class="pic">
         <ul>  
           <?php
-          // if(
-          //   isset($_SESSION["user_id"]) && 
-          //   $profile["user_id"] === $_SESSION["user_id"]
-          //   ){
               foreach($posts as $post){
                 echo '
                   <li><a href="'.ROOT.'posts/view_post/'.$post["post_id"].'"><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="img"></a></li>
                 ';
               }
-            // }
           ?>
           <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">
         </ul>

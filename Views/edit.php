@@ -42,11 +42,11 @@
     </header>
     <main class="edit-wrapper">
       <?php 
-        if(!empty($message)){
-          echo "<p>" .$message. "</p>";
-        }
+        // if(!empty($message)){
+        //   echo "<p>" .$message. "</p>";
+        // }
       ?>
-      <h1><?php echo $data[0]["username"];?> Perfil</h1>
+      <h1><?php echo ucfirst($data[0]["username"]);?> Perfil</h1>
       <form method="POST" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>" enctype="multipart/form-data" class="edit-form">
         <div>
           <label>
