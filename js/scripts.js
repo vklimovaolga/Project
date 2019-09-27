@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () =>{
         deleteConfirm();
     });
     
-    cancelButton.addEventListener("click", (e) => {
-        modal.style.display = "none";
-        window.location.reload();
+    // cancelButton.addEventListener("click", (e) => {
+    //     modal.style.display = "none";
+    //     window.location.reload();
         
-    });
+    // });
     
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -48,20 +48,58 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     }
     
-    let newComment = document.querySelector("#new-comment");
+    // let newComment = document.querySelector("#new-comment");
     
+    // for(let i = 0; i< editButton.length; i++) {
+        
+    //     editButton[i].addEventListener("click", () => {
+    //         modal.style.display = "block";
+            
+    //         let oldComment = editButton[i].parentNode.previousElementSibling.lastElementChild;
+    //         let commentID = editButton[i].parentNode.previousElementSibling.dataset.comment_id;
+    //         newComment.value = oldComment.textContent;
+            
+    //         confirmButton.addEventListener("click", () => {
+                
+    //             let finalComment = newComment.value;
+                
+    //             fetch("../edit_comment/"+commentID+"/"+finalComment, {
+    //                 method: "POST", 
+    //                 mode: "same-origin", 
+    //                 cache: "no-cache",
+    //                 credentials: "same-origin", 
+    //                 headers: {
+    //                     "Content-Type": "application/x-www-form-urlencoded",
+    //                 },
+    //                 redirect: "follow", 
+    //                 referrer: "no-referrer", 
+    //                 body: "comment_id="+commentID+"&message="+finalComment+"",
+    //             })
+    //             .then(response => response.json() )
+                
+    //             modal.style.display = "none";
+               
+    //         });
+    //     });
+    // }
+
     for(let i = 0; i< editButton.length; i++) {
         
         editButton[i].addEventListener("click", () => {
-            modal.style.display = "block";
-            
             let oldComment = editButton[i].parentNode.previousElementSibling.lastElementChild;
             let commentID = editButton[i].parentNode.previousElementSibling.dataset.comment_id;
-            newComment.value = oldComment.textContent;
+            let textarea = editButton[i].previousElementSibling;
+
+            textarea.style.display = "block";
+            oldComment.style.display = "none";
+
+            textarea.textContent = oldComment.textContent;
+
+            editButton[i].disabled = true;
             
-            confirmButton.addEventListener("click", () => {
+            textarea.addEventListener("change", () => {
                 
-                let finalComment = newComment.value;
+                let finalComment = textarea.value;
                 
                 fetch("../edit_comment/"+commentID+"/"+finalComment, {
                     method: "POST", 
@@ -75,48 +113,50 @@ document.addEventListener("DOMContentLoaded", () =>{
                     referrer: "no-referrer", 
                     body: "comment_id="+commentID+"&message="+finalComment+"",
                 })
-                .then(response => response.json() )
+                .then(response => response.text() )
                 
-                modal.style.display = "none";
-               
+                textarea.style.display = "none";
+                oldComment.style.display = "block";
+
+                oldComment.textContent = finalComment;
+                
+                editButton[i].disabled = false;
+
             });
         });
     }
+     
 
     const deleteComment = document.querySelectorAll("#deleteComment");
     
-    function deleteCommentConfirm(deleteCommentField) {
-        let confirmm = confirm("Quer mesmo apagar?");
-        
-        if(confirmm){
-            
-            fetch("../delete_comment/"+deleteCommentField, {
-                method: "DELETE", 
-                mode: "same-origin", 
-                cache: "no-cache",
-                credentials: "same-origin", 
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                redirect: "follow", 
-                referrer: "no-referrer", 
-                body: "",
-            })
-            .then(response => response.json()).then(
-                
-                    // window.location.reload() 
-            ) 
-        }
-    }
 
     for(let i = 0; i < deleteComment.length; i++){
         
         deleteComment[i].addEventListener("click", () => {
             
             let deleteCommentField = deleteComment[i].parentNode.previousElementSibling.dataset.comment_id;
+            let confirmm = confirm("Quer mesmo apagar?");
+            
+            if(confirmm){
+                
+                fetch("../delete_comment/"+deleteCommentField, {
+                    method: "DELETE", 
+                    mode: "same-origin", 
+                    cache: "no-cache",
+                    credentials: "same-origin", 
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", 
+                    referrer: "no-referrer", 
+                    body: "",
+                })
+                .then(response => response.text())
 
-            deleteCommentConfirm(deleteCommentField);
-
+                deleteComment[i].parentNode.previousElementSibling.style.display = "none";
+                deleteComment[i].parentNode.style.display = "none";
+        }
+        
         });
     }
 

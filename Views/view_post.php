@@ -2,7 +2,7 @@
 <html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>Editar Perfil </title>
+    <title>Post - <?php echo $data[0]["title"];?></title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/post.css">
     <script src="/PF/Project/js/scripts.js"></script>
@@ -35,9 +35,9 @@
             ?>
             <button type="button" name="delete" id="deleteB" value="<?php echo $data[0]["post_id"];?>">Apagar Post</button>
             <?php
-                    echo '<a href="'. ROOT .'create/profile">Perfil</a>';
-                        
-                    echo '<a href="'. ROOT .'access/logout">Logout</a>';
+                echo '<a href="'. ROOT .'create/profile">Perfil</a>';
+                    
+                echo '<a href="'. ROOT .'access/logout">Logout</a>';
                 }
             ?>
             </nav>
@@ -82,29 +82,18 @@
                     <p id="text">'.$comment["message"].'</p>
                   </div>
               '; 
-
+                    
               if(isset($_SESSION["user_id"]) && $comment["user_id"] === $_SESSION["user_id"]){
                 echo '
-                    <div class="comment-button-wrapper">
-                      <button type="button" name="edit" id="editButton">Editar</button>
-                      <button type="button" name="delete" id="deleteComment">Apagar</button>
-                    </div>
+                  <div class="comment-button-wrapper">
+                    <textarea id="newcomment"></textarea>
+                    <button type="button" name="edit" id="editButton">Editar</button>
+                    <button type="button" name="delete" id="deleteComment">Apagar</button>
+                  </div>
                 ';
               }                         
             } 
           ?>
-          <div id="modal">
-              <div>
-                <label>
-                  Comentario
-                  <input type="text" name="message" id="new-comment">
-                </label>
-              </div>
-              <div>
-                <button type="submit" name="edit" id="confirmButton">Publicar</button>
-                <button type="button" name="cancel" id="cancelButton">Cancelar</button>
-              </div>
-          </div>
         </div>
       </div>
       <input type="hidden" name="post_id" value="<?php echo $data[0]["post_id"];?>">

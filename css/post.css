@@ -72,7 +72,7 @@ form div label input[type="text"] {
     border: 1px solid #4f7c2c;
 }
 
-#modal {
+/* #modal {
     display: none;
     position: fixed; 
     z-index: 1; 
@@ -90,7 +90,7 @@ form div label input[type="text"] {
     background-color: #f1f1f1;
     padding: 30px 30px 10px 30px;
     color: black;
-}
+} */
 
 .comment-wrapper{
     width: 400px;
@@ -135,4 +135,9 @@ form div label input[type="text"] {
 #deleteComment {
     background-color: rgba(255, 0, 0, 0.384);
     border: 1px solid rgb(65, 10, 10);
+}
+
+
+#newcomment{
+    display: none;
 }
