@@ -1,6 +1,6 @@
 <?php
 session_start();
-$controllers = ["home", "access", "create", "posts"];
+$controllers = ["home", "access", "create", "posts", "admin"];
 $controller = $controllers[0];
 
 

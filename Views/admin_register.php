@@ -2,7 +2,7 @@
 <html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>Criar Conta</title>
+    <title>Criar Conta Admin</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/register.css">
     <!-- <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css"> -->
 
@@ -13,7 +13,7 @@
         echo "<p>Preencha todos os campos correctamente, password tem que ter no minimo 6 caracteres</p>";
       }
     ?>
-    <h1>Criar Conta Nova</h1>
+    <h1>Criar Conta Admin</h1>
     <div class="wrapper">
       <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>" class="form">
         <div>

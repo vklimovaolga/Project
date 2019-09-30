@@ -29,7 +29,6 @@
                               !$profile["user_id"] === $_SESSION["user_id"]
                             ){
                                 echo '<a href="'.ROOT.'create/create">Criar Perfil</a> ';
-                              
                             }
                           }
                 
