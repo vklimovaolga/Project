@@ -23,8 +23,7 @@
               ';
             }
             else {
-              echo '<a href="'. ROOT .'create/profile">Perfil</a>';
-
+              echo '<a href="'. ROOT .'create/profile/'.$data[0]["user_id"].'">Perfil</a>';
               foreach ($data as $profile) {
                 if(
                   isset($_SESSION["user_id"]) && 

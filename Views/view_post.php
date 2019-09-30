@@ -26,18 +26,18 @@
                 else {
                   foreach ($data as $post) {
                     if(
-                      isset($_SESSION["user_id"]) &&
-                      $post["user_id"] === $_SESSION["user_id"]
+                        isset($_SESSION["user_id"]) &&
+                        $post["user_id"] === $_SESSION["user_id"]
                       ){
                         echo '<a href="'.ROOT.'posts/edit_post/'.$post["post_id"].'">Editar Post</a>';                          
-                      }
-                    } 
-            ?>
+                        ?>
             <button type="button" name="delete" id="deleteB" value="<?php echo $data[0]["post_id"];?>">Apagar Post</button>
             <?php
-                echo '<a href="'. ROOT .'create/profile">Perfil</a>';
+                      }
+                  } 
+                echo '<a href="'.ROOT.'create/profile/'.$datas[0]["user_id"].'">Perfil</a>';
                     
-                echo '<a href="'. ROOT .'access/logout">Logout</a>';
+                echo '<a href="'.ROOT.'access/logout">Logout</a>';
                 }
             ?>
             </nav>

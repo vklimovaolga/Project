@@ -29,13 +29,12 @@
                   isset($_SESSION["user_id"]) && 
                   $profile["user_id"] === $_SESSION["user_id"]
                   ){
-                    echo '<a href="'.ROOT .'posts/create_post">Criar Post</a>'; 
+                    echo '<a href="'.ROOT.'posts/create_post">Criar Post</a>'; 
                     echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
                   }
                 }
-                
                 echo '<a href="'. ROOT .'access/logout">Logout</a>';
-            }
+              }
             ?>
         </nav>
       </div>
@@ -43,23 +42,18 @@
     <main>
       <div class="wrapper-profile">
         <?php
-          if(
-            isset($_SESSION["user_id"]) && 
-            $profile["user_id"] === $_SESSION["user_id"]
-            ){
             foreach($data as $profile){
               echo '
                 <div class="profile-container">
                   <div class="profile-picture">
                     <img src="/PF/Project/uploads/'.$profile["picture"].'" alt="imagem de perfil">
                   </div>
-                  <h1>'.ucfirst($data[0]["username"]).'</h1>
+                  <h1>'.ucfirst($profile["username"]).'</h1>
                   <p>'.ucfirst($profile["description"]).'</p>
                   <p>'.$profile["url"].'</p>
                 </div>
               ';
             }
-          }
           ?>
       </div>
       <nav class="nav-data">

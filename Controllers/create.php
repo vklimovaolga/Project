@@ -1,14 +1,9 @@
 <?php 
 require_once("models/profile.php");
+require_once("models/posts.php");
 
-  // if(!isset($_SESSION["user_id"])){
-
-  //   header("Location: ".ROOT."access/login");
-  //   exit;
-  // }
   
-  
-  $options = [ "profile", "edit", "create" ];
+    $options = [ "profile", "edit", "create" ];
 
   if(in_array($url_parts[4], $options)){
     
@@ -21,20 +16,15 @@ require_once("models/profile.php");
     
     
     if($url_parts[4] === "profile"){
-      
-      $model = new Profiles();
-      $data = $model->get($url_parts[4]);
-      
-      require_once("models/posts.php");
-      if(isset($_SESSION["user_id"])){
-        
-        $model = new Profiles();
-        $data = $model->getProfile($url_parts[4]);
+      if(isset($url_parts[5])){
 
+        $model = new Profiles();
+        $data = $model->get($url_parts[5]);
+  
         $model = new Post();
-        $posts = $model->getPosts($url_parts[4]);
+        $posts = $model->getPost($url_parts[5]);
+    
       }
-      
     }
     
     if($url_parts[4] === "edit"){

@@ -42,17 +42,16 @@ class Profiles extends Base {
       }
   }
 
-  public function get($data){
+  public function get($user_id){
     $query= $this->db->prepare("
       SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
       FROM profiles AS p 
       INNER JOIN users AS u USING(user_id)
-      WHERE p.user_id = ? OR p.profile_id = ?
+      WHERE  p.user_id = ?
     ");
 
     $query->execute([
-      $data,
-      $data
+      $user_id
     ]);
 
     $profile = $query->fetchAll( PDO::FETCH_ASSOC );
@@ -110,7 +109,7 @@ class Profiles extends Base {
         
         move_uploaded_file($_FILES["picture"]["tmp_name"], "uploads/".$filename);
 
-        header("Location: " .ROOT. "create/profile");
+        header("Location: " .ROOT. "create/profile/".$_SESSION["user_id"]."");
 
       }
       else {

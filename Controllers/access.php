@@ -27,9 +27,9 @@ require_once("models/profile.php");
         $model1 = new Profiles();
         $data = $model1->getProfile($profile_id);
         
-        if($status && $data){
+        if($status && $data && isset($_SESSION["user_id"])){
           
-          header("Location: ".ROOT."create/profile");
+          header("Location: ".ROOT."create/profile/".$data[0]["user_id"]);
           
         }
         else{

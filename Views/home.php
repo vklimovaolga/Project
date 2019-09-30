@@ -33,7 +33,7 @@
                             }
                           }
                 
-                        echo '<a href="'.ROOT.'create/profile">Perfil</a> ';
+                        echo '<a href="'.ROOT.'create/profile/'.$data[0]["user_id"].'">Perfil</a> ';
                         
                         echo '<a href="'. ROOT .'access/logout">Logout</a>';
                     }

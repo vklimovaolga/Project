@@ -2,16 +2,16 @@
 require_once("base.php");
 
  class Post extends Base {
-    public function getPosts($post_id){
+    public function getPostId($post_id){
         $query = $this->db->prepare("
-            SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username
+            SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, pf.picture
             FROM posts AS p
             INNER JOIN users AS u USING(user_id)
-            WHERE p.user_id = ? OR p.post_id = ?
+            INNER JOIN profiles AS pf USING(user_id)
+            WHERE p.post_id = ?
         ");
 
         $query->execute([
-            $_SESSION["user_id"],
             $post_id
           ]);
   
@@ -19,17 +19,17 @@ require_once("base.php");
         return $posts;
 
     }
-    public function getPost($post_id){
+    public function getPost($user_id){
         $query = $this->db->prepare("
             SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, s.picture
             FROM posts AS p
             INNER JOIN users AS u USING(user_id)
             INNER JOIN profiles AS s USING(user_id)
-            WHERE p.post_id = ?
+            WHERE p.user_id = ? 
         ");
 
         $query->execute([
-            $post_id
+            $user_id
           ]);
   
         $posts = $query->fetchAll( PDO::FETCH_ASSOC );
@@ -67,7 +67,8 @@ require_once("base.php");
             ]);
 
             move_uploaded_file($_FILES["image"]["tmp_name"], "post_uploads/".$filename);
-            header("Location: " .ROOT. "create/profile");
+            $post_id = $this->db->lastInsertId();
+            header("Location: " .ROOT."posts/view_post/".$post_id);
 
             return "ok";
 

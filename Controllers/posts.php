@@ -1,11 +1,4 @@
 <?php 
-
-// if(!isset($_SESSION["user_id"])) {
-    
-//     header("Location: ".ROOT." access/login");
-//     exit;
-// }
-
 require_once("models/posts.php");
 require_once("models/profile.php");
 require_once("models/comments.php");
@@ -17,13 +10,16 @@ if(in_array($url_parts[4], $options)) {
     if($url_parts[4] === "create_post" && isset($_POST["send"])){
         
         $model = new Post();
-        $message = $model->createPost($_POST);
+        $data = $model->createPost($_POST);
+
         
     }
     if($url_parts[4] === "view_post") {
         $model = new Post();
         if(isset($url_parts[5])) {
-            $data = $model->getPost($url_parts[5]);
+            $data = $model->getPostId($url_parts[5]);
+            $model1 = new Profiles();
+            $datas = $model1->getProfile($url_parts[5]);
             if(isset($_POST["send"])){
                 $model = new Comment();
                 $message = $model->createComment($_POST);
