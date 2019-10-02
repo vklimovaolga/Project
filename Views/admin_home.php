@@ -34,17 +34,28 @@
             </div>
         </header>
         <main>
-            <ul>
-               <?php 
-                foreach($admins as $admin) {
-                    echo '
+            <div>
+                <ul>
+                <?php 
+                    foreach($admins as $admin) {
+                        echo '
                         <li>'.$admin["username"].'</li>
-                        <li>Email: '.$admin["email"].'</li>
-                        <li>Data de registo: '.$admin["registration_date"].'</li>
-                    ';
-                }
-               ?>
-            </ul>
+                            <li>Email: '.$admin["email"].'</li>
+                            <li>Data de registo: '.$admin["registration_date"].'</li>
+                            ';
+                        }
+                ?>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Total de Utilizadores: <?php  echo $users[0]["total_users"]; ?></li>
+                    <li>Total de Perfis: <?php   echo $profiles[0]["total_profiles"]; ?></li>
+                    <li>Total de Posts: <?php   echo $posts[0]["total_posts"]; ?></li>
+                    <li>Total de Comentarios: <?php  ?></li>
+                </ul>
+            </div>
+        
         
             
         </main>

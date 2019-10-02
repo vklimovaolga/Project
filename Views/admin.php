@@ -34,19 +34,6 @@
             </div>
         </header>
         <main>
-            <ul>
-               <?php 
-                foreach($admins as $admin) {
-                    echo '
-                        <li>'.$admin["username"].'</li>
-                        <li>Email: '.$admin["email"].'</li>
-                        <li>Data de registo: '.$admin["registration_date"].'</li>
-                    ';
-                }
-               ?>
-            </ul>
-        
-            
         </main>
         <footer>
             <div class="footer">

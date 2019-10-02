@@ -2,7 +2,7 @@
 require_once("base.php");
 
  class Admins extends Base {
-     public function get($admin_id){
+     public function get($admin_id) {
         $query = $this->db->prepare("
         SELECT admin_id, username, email, registration_date
         FROM admins
@@ -15,7 +15,8 @@ require_once("base.php");
         $admin = $query->fetchAll( PDO::FETCH_ASSOC );
         return $admin;
      }
-     public function getAdmin($admin_id){
+
+     public function getAdmin($admin_id) {
         $query = $this->db->prepare("
         SELECT admin_id, username, email, registration_date
         FROM admins
@@ -29,7 +30,7 @@ require_once("base.php");
         return $admin;
      }
 
-     public function login($data){
+     public function login($data) {
         if(
             !empty($data["username"]) &&
             !empty($data["password"])
@@ -56,13 +57,12 @@ require_once("base.php");
             }
             else {
               return false;
-              echo "erro";
             }
         
         }
      }
 
-     public function register($data){
+     public function register($data) {
         if(
             !empty($data["username"]) &&
             mb_strlen($data["username"]) >= 3 &&
