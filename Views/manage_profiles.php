@@ -2,7 +2,7 @@
 <html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title>Admin Home</title>
+    <title>Gerir Perfis</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
   </head>
   <body>
@@ -23,6 +23,8 @@
                         ';
                     }
                     else {
+                    
+                        echo '<a href="'.ROOT.'admin/admin_home/'.$admin[0]["admin_id"].'">Home</a> ';
 
                         echo '<a href="'.ROOT.'admin/manage_profiles">Gerir Perfis</a> ';
 
@@ -37,30 +39,25 @@
         <main>
             <div>
                 <ul>
-                <?php 
-                    foreach($admins as $admin) {
-                        echo '
-                        <li>'.$admin["username"].'</li>
-                            <li>Email: '.$admin["email"].'</li>
-                            <li>Data de registo: '.$admin["registration_date"].'</li>
+                    <?php
+                        foreach($profiles as $profile) {
+                            echo '
+                                <li>Id '.$profile["profile_id"].'</li>
+                                <li>Descrição '.$profile["description"].'</li>
+                                <li>Url '.$profile["url"].'</li>
+                                <li>Url <img src="/PF/Project/uploads/'.$profile["picture"].'" alt="Imagem de perfil"></li>
                             ';
+
                         }
-                ?>
+                    ?>
                 </ul>
-            </div>
-            <div>
-                <ul>
-                    <li>Total de Utilizadores: <?php echo $users[0]["total_users"]; ?></li>
-                    <li>Total de Perfis: <?php echo $profiles[0]["total_profiles"]; ?></li>
-                    <li>Total de Posts: <?php echo $posts[0]["total_posts"]; ?></li>
-                    <li>Total de Comentarios: <?php echo $comments[0]["total_comments"]; ?></li>
-                </ul>
+                    
             </div>
         
         
             
         </main>
-        <footer>
+        <!-- <footer>
             <div class="footer">
                 <ul>
                     <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
@@ -69,7 +66,7 @@
                     <li><a href="">Termos de Serviço</a></li>
                 </ul>
             </div>
-        </footer>
+        </footer> -->
     </div>
     
   </body>

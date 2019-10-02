@@ -1,74 +1,81 @@
 <?php
 require_once("models/admins.php");
 require_once("models/admin_panel.php");
+require_once("models/profile.php");
 
-// if(isset($url_parts[3])) 
-// {
-//     $model = new Admins();
-//     $admins = $model->getAdmin($url_parts[3]);
+$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts"];
 
-// }
+$option = $options[0];
+if(isset($url_parts[4]) && in_array($url_parts[4], $options)) {
+    $option = $url_parts[4];
 
-// require_once("views/admin.php");
-
-$options = ["admin_login", "admin_register", "admin_logout", "admin_home"];
-
-if(in_array($url_parts[4], $options)) {
-    
-    $model = new Admins();
-
-    if(isset($_POST["send"]) ) {
-        
-        
-        if($url_parts[4] === "admin_register") {
-            
-            $status = $model->register($_POST);
-            
-            if($status) {
-                header("Location: ".ROOT."admin/admin_login");
-            }
-        }
-        else {
-            $status = $model->login($_POST);
-            $admin = $model->get($admin_id);
-            
-            if($status && $admin) {
-        
-                header("Location: ".ROOT."admin/admin_home/".$admin[0]["admin_id"]);
-            }
-            
-        }
-    
-    }
-
-    if($url_parts[4] === "admin_home" && isset($_SESSION["admin_id"])) {
-
-        if(isset($url_parts[5])) {
-            
-            $admins = $model->getAdmin($url_parts[5]);
-            $model = new AdminPanel();
-            $users = $model->countUsers();
-            $profiles = $model->countProfiles();
-            $posts = $model->countPosts();
-        }
-       
- 
-    }
-    // else {
-    //     header("HTTP/1.1 400 Bad Resquest");
-    //     echo "400 Bad Resquest";
-    // }
-
-    if($url_parts[4] === "admin_logout" ) {
-
-        session_destroy();
-        
-        header("Location: ". ROOT);
-        exit;
-    }
-
-    require("views/".$url_parts[4].".php");
 }
+
+if(!isset($_SESSION["admin_id"]) && $option !== "admin_login") {
+    header("Location: ".ROOT."admin/admin_login");
+    exit;
+}
+
+$model = new Admins();
+$model = new Admins();
+
+if(isset($_POST["send"]) ) {
+
+    $status = $model->login($_POST);
+    $admin = $model->get($admin_id);
+    
+    if($status && $admin) {
+
+        header("Location: ".ROOT."admin/admin_home/".$admin[0]["admin_id"]);
+    }
+        
+}
+
+
+if($option === "admin_home") {
+
+    if(isset($url_parts[5])) {
+        
+        $admins = $model->getAdmin($url_parts[5]);
+        $model = new AdminPanel();
+        $users = $model->countUsers();
+        $profiles = $model->countProfiles();
+        $posts = $model->countPosts();
+        $comments = $model->countComments();
+    }
+}
+
+
+if($option === "manage_posts") {
+    
+    $admin = $model->get($option);
+    
+}
+
+if($option === "manage_profiles") {
+    
+    $admin = $model->get($option);
+    $model = new Profiles();
+    $profiles = $model->getP();
+    
+}
+if($option === "manage_posts") {
+    
+    $admin = $model->get($option);
+    
+}
+    
+
+if($option === "admin_logout" ) {
+
+    session_destroy();
+    
+    header("Location: ". ROOT);
+    exit;
+}
+
+require("views/".$option.".php");
+  
 
 
 ?>

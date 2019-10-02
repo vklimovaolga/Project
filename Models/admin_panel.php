@@ -42,4 +42,17 @@ require_once("base.php");
     
     }
 
+    public function countComments() {
+        $query = $this->db->prepare("
+        SELECT count(*) as total_comments
+        FROM comments
+      ");
+  
+        $query->execute();
+
+        $count = $query->fetchAll( PDO::FETCH_ASSOC );
+        return $count;
+    
+    }
+
 }

@@ -58,6 +58,20 @@ class Profiles extends Base {
     return $profile;
 
   }
+  public function getP(){
+    $query= $this->db->prepare("
+      SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
+      FROM profiles AS p 
+      INNER JOIN users AS u USING(user_id)
+    ");
+
+    $query->execute([
+    ]);
+
+    $profile = $query->fetchAll( PDO::FETCH_ASSOC );
+    return $profile;
+
+  }
 
   public function getProfile($profile_id){
       $query= $this->db->prepare("
