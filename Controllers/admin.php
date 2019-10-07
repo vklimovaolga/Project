@@ -17,7 +17,6 @@ if(!isset($_SESSION["admin_id"]) && $option !== "admin_login") {
 }
 
 $model = new Admins();
-$model = new Admins();
 
 if(isset($_POST["send"]) ) {
 
@@ -57,11 +56,13 @@ if($option === "manage_profiles") {
     $admin = $model->get($option);
     $model = new Profiles();
     $profiles = $model->getP();
+
     
 }
 if($option === "manage_posts") {
     
     $admin = $model->get($option);
+    $posts = $model->getPosts();
     
 }
     

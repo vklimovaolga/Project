@@ -1,18 +1,67 @@
-h1 {
-    font-size: 4rem;
-    text-align: center;
-    margin: 60px 20px 50px 20px
+/* admin home */
+.admin-wrapper {
+    display: flex;  
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+
 }
+.left-wrapper {
+    margin-top: 70px;
+    margin-right: 200px;
+    background-color: #252723;
+    height: 110px;
+    padding: 10px;
+
+}
+.left-wrapper ul li {
+    margin: 15px;
+    font-size: 1.6rem;
+}
+
+.right-wrapper {
+    font-size: 2.5rem;
+    padding: 15px;
+    width: 400px;
+    
+}
+.right-wrapper h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+/* .right-wrapper ul {
+      
+} */
+.right-wrapper ul li{
+    padding: 30px;
+    margin-bottom: 10px;
+    background-color: #79c0436b;
+    text-align: center;
+}
+
+
+
+
+/* gerir perfis */
+
 .wrapper-list {
     width: 1200px;
     margin: 0 auto;
 }
 
+.wrapper-list h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 60px 20px 50px 20px
+}
 .profile-list table {
     border: 2px solid #222222;
     text-align: center;
     width: 1200px;
     font-size: 1.6rem;
+    margin-bottom: 100px;
 }
 .profile-list table tr th {
     border: 2px solid #222222;

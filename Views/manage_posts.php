@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gerir Posts</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/PF/Project/css/admin.css">
   </head>
   <body>
     <div id="wrapper">
@@ -36,25 +37,37 @@
                 </nav>
             </div>
         </header>
-        <main>
-            <div>
+        <main class="wrapper-list">
+            <h1>Lista de Posts</h1>
+            <div class="profile-list">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Usename</th>
+                        <th>Título</th>
+                        <th>Imagem</th>
+                        <th>Descrição</th>
+                        <th>Data de criação</th>
+                        <th>Gerir</th>
+                    </tr>
                     
+                    <?php
+                        foreach($posts as $post) {
+                            echo '<tr>
+                                <td>'.$post["post_id"].'</td>
+                                <td>'.$post["username"].'</td>
+                                <td>'.$post["title"].'</td>
+                                <td><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="Imagem do post"></td>
+                                <td>'.$post["description"].'</td>
+                                <td>'.$post["created_at"].'</td>
+                                <td><a href="" >Apagar</a></td>
+                            </tr>';
+
+                        }
+                    ?>
+                </table>
             </div>
-        
-        
-            
         </main>
-        <!-- <footer>
-            <div class="footer">
-                <ul>
-                    <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
-                    <li><a href="">Sobre</a></li>
-                    <li><a href="">Declaração de Privacidade</a></li>
-                    <li><a href="">Termos de Serviço</a></li>
-                </ul>
-            </div>
-        </footer> -->
     </div>
-    
   </body>
 </html>

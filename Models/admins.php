@@ -62,6 +62,21 @@ require_once("base.php");
         }
      }
 
+     public function getPosts(){
+      $query = $this->db->prepare("
+          SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, pf.picture
+          FROM posts AS p
+          INNER JOIN users AS u USING(user_id)
+          INNER JOIN profiles AS pf USING(user_id)
+      ");
+
+      $query->execute();
+
+      $posts = $query->fetchAll( PDO::FETCH_ASSOC );
+      return $posts;
+
+  }
+
 
 
     
