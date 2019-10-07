@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gerir Perfis</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/PF/Project/css/admin.css">
   </head>
   <body>
     <div id="wrapper">
@@ -36,21 +37,36 @@
                 </nav>
             </div>
         </header>
-        <main>
-            <div>
-                <ul>
+        <main class="wrapper-list">
+            <h1>Lista de Perfis</h1>
+            <div class="profile-list">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Usename</th>
+                        <th>Descrição</th>
+                        <th>Url</th>
+                        <th>Imagem</th>
+                        <th>Data de criação</th>
+                        <th>Gerir</th>
+                    </tr>
+                    
                     <?php
                         foreach($profiles as $profile) {
-                            echo '
-                                <li>Id '.$profile["profile_id"].'</li>
-                                <li>Descrição '.$profile["description"].'</li>
-                                <li>Url '.$profile["url"].'</li>
-                                <li>Url <img src="/PF/Project/uploads/'.$profile["picture"].'" alt="Imagem de perfil"></li>
-                            ';
+                            echo '<tr>
+                                <td>'.$profile["profile_id"].'</td>
+                                <td>'.$profile["username"].'</td>
+                                <td>'.$profile["description"].'</td>
+                                <td>'.$profile["url"].'</td>
+                                <td><img src="/PF/Project/uploads/'.$profile["picture"].'" alt="Imagem de perfil"></td>
+                                <td>'.$profile["created_at"].'</td>
+                                <td><a href="" >Apagar</a></td>
+                            </tr>';
 
                         }
                     ?>
-                </ul>
+                    
+                </table>
                     
             </div>
         

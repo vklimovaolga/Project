@@ -1,0 +1,46 @@
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 60px 20px 50px 20px
+}
+.wrapper-list {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-list table {
+    border: 2px solid #222222;
+    text-align: center;
+    width: 1200px;
+    font-size: 1.6rem;
+}
+.profile-list table tr th {
+    border: 2px solid #222222;
+    padding: 15px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #7ac043;
+}
+.profile-list table tr td {
+    padding: 15px;
+    border: 1px solid #222222;
+    vertical-align: middle;
+
+    
+}
+.profile-list table tr td img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #222222;
+    border-radius: 50%;
+}
+
+.profile-list a {
+    text-decoration: none;
+    color: #f1f1f1;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.384);
+    border: 1px solid rgb(65, 10, 10);
+    border-radius: 4px;
+}
+

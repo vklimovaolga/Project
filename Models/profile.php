@@ -60,7 +60,7 @@ class Profiles extends Base {
   }
   public function getP(){
     $query= $this->db->prepare("
-      SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
+      SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture, p.created_at
       FROM profiles AS p 
       INNER JOIN users AS u USING(user_id)
     ");
