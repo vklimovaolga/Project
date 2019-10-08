@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         aDeletePost[i].addEventListener("click", () => {
 
             let deletePost = aDeletePost[i].parentNode.parentNode.dataset.post_id;
-            // let userId = aDeletePost[i].parentNode.parentNode.dataset.user_id;
-            // console.log(aDeletePost[i].parentNode.parentNode);
 
             let confirmm = confirm("Quer mesmo apagar?");
                 
@@ -34,6 +32,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
     }
+
+    const aDeleteProfile = document.querySelectorAll("#aDeleteProfile");
+
+    for(let i = 0; i < aDeleteProfile.length; i++) {
+
+        aDeleteProfile[i].addEventListener("click", () => {
+
+            let deleteProfile = aDeleteProfile[i].parentNode.parentNode.firstElementChild.textContent;
+
+            let confirmm = confirm("Quer mesmo apagar?");
+                
+                if(confirmm){
+                    fetch("./delete_profile/"+deleteProfile, {
+                        method: "DELETE", 
+                        mode: "same-origin", 
+                        cache: "no-cache",
+                        credentials: "same-origin", 
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        redirect: "follow", 
+                        referrer: "no-referrer", 
+                        body: "",
+                    })
+                    .then(response => response.json())
+
+                    aDeleteProfile[i].parentNode.parentNode.style.display = "none";
+
+                }
+
+        });
+    }
+
+
 
 
 });

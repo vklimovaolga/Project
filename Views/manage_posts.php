@@ -64,7 +64,7 @@
                                 <td>'.$post["description"].'</td>
                                 <td>'.$post["created_at"].'</td>
                                 <td>'.$post["total"].'</td>
-                                <td><button type="button" name="deleteT" id="aDeletePost">Apagar</button></td>
+                                <td><button type="button" name="delete" id="aDeletePost">Apagar</button></td>
                             </tr>';
 
                         }

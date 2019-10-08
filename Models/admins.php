@@ -104,8 +104,32 @@ require_once("base.php");
           ]);
 
       }
+  }
+    public function deleteProfile($profile_id) {
 
+      $query = $this->db->prepare("
+          DELETE FROM profiles
+          WHERE profile_id = ?
+      ");
 
+      $result = $query->execute([
+          $profile_id,
+      ]);
+
+      if($result){
+          return json_encode([
+              "status" => "Ok",
+              "message" => "Processo concluido com sucesso"
+          ]);
+          
+      }
+      else{
+          return json_encode([
+              "status" => "Error",
+              "message" => "Ocorreu um erro a apagar o perfil"
+          ]);
+
+      }
   }
 
 

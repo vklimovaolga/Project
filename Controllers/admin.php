@@ -4,7 +4,7 @@ require_once("models/admin_panel.php");
 require_once("models/profile.php");
 
 
-$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts", "delete_post"];
+$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts", "delete_post", "delete_profile"];
 
 $option = $options[0];
 if(isset($url_parts[4]) && in_array($url_parts[4], $options)) {
@@ -67,8 +67,11 @@ if($option === "manage_posts") {
 }
 
 if($option === "delete_post"){
-    $model = new Admins();
     $response = $model->deletePost($url_parts[5]);
+    die($response);
+}
+if($option === "delete_profile"){
+    $response = $model->deleteProfile($url_parts[5]);
     die($response);
 }
     

@@ -5,6 +5,7 @@
     <title>Gerir Perfis</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/admin.css">
+    <script src="/PF/Project/js/admin_scripts.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -53,14 +54,14 @@
                     
                     <?php
                         foreach($profiles as $profile) {
-                            echo '<tr>
+                            echo '<tr data-profile_id="'.$profile["profile_id"].'">
                                 <td>'.$profile["profile_id"].'</td>
                                 <td>'.$profile["username"].'</td>
                                 <td>'.$profile["description"].'</td>
                                 <td>'.$profile["url"].'</td>
                                 <td><img src="/PF/Project/uploads/'.$profile["picture"].'" alt="Imagem de perfil"></td>
                                 <td>'.$profile["created_at"].'</td>
-                                <td><a href="" >Apagar</a></td>
+                                <td><button type="button" name="delete" id="aDeleteProfile">Apagar</button></td>
                             </tr>';
 
                         }
