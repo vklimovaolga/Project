@@ -59,6 +59,7 @@ require_once("base.php");
             $_SESSION["user_id"]
         ]);
     }
+    
     public function deleteComment($comment_id) {
         $query = $this->db->prepare("
             DELETE FROM comments

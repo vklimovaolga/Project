@@ -5,6 +5,7 @@
     <title>Gerir Posts</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css">
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/admin.css">
+    <script src="/PF/Project/js/admin_scripts.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -55,19 +56,19 @@
                     <?php
                         foreach($posts as $post) {
 
-                            echo '<tr>
+                            echo '<tr data-post_id="'.$post["post_id"].'">
                                 <td>'.$post["post_id"].'</td>
                                 <td>'.$post["username"].'</td>
                                 <td>'.$post["title"].'</td>
                                 <td><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="Imagem do post"></td>
                                 <td>'.$post["description"].'</td>
                                 <td>'.$post["created_at"].'</td>
-                            
-                                <td value="'. $post["post_id"].'">'.$post["total"].'</td>
-                                <td><a href="" >Apagar</a></td>
+                                <td>'.$post["total"].'</td>
+                                <td><button type="button" name="deleteT" id="aDeletePost">Apagar</button></td>
                             </tr>';
 
                         }
+        
                         
                     ?>
                 </table>

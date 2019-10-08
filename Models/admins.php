@@ -68,8 +68,7 @@ require_once("base.php");
           FROM posts AS p
           INNER JOIN users AS u USING(user_id)
           INNER JOIN profiles AS pf USING(user_id)
-          INNER JOIN comments AS c USING(user_id)
-          WHERE p.post_id = c.post_id
+          LEFT JOIN comments AS c ON p.post_id = c.post_id
           GROUP BY p.post_id
       ");
 
@@ -77,6 +76,35 @@ require_once("base.php");
 
       $posts = $query->fetchAll( PDO::FETCH_ASSOC );
       return $posts;
+
+    }
+
+    public function deletePost($post_id) {
+
+      $query = $this->db->prepare("
+          DELETE FROM posts
+          WHERE post_id = ?
+      ");
+
+      $result = $query->execute([
+          $post_id,
+      ]);
+
+      if($result){
+          return json_encode([
+              "status" => "Ok",
+              "message" => "Processo concluido com sucesso"
+          ]);
+          
+      }
+      else{
+          return json_encode([
+              "status" => "Error",
+              "message" => "Ocorreu um erro a apagar o post"
+          ]);
+
+      }
+
 
   }
 

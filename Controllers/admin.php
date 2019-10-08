@@ -3,7 +3,8 @@ require_once("models/admins.php");
 require_once("models/admin_panel.php");
 require_once("models/profile.php");
 
-$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts"];
+
+$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts", "delete_post"];
 
 $option = $options[0];
 if(isset($url_parts[4]) && in_array($url_parts[4], $options)) {
@@ -63,9 +64,12 @@ if($option === "manage_posts") {
     
     $admin = $model->get($option);
     $posts = $model->getPosts();
-    $model = new AdminPanel();
-    $comment = $model->countCommentsId($posts[1]["post_id"]);
-    
+}
+
+if($option === "delete_post"){
+    $model = new Admins();
+    $response = $model->deletePost($url_parts[5]);
+    die($response);
 }
     
 
