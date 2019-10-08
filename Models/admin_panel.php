@@ -54,5 +54,18 @@ require_once("base.php");
         return $count;
     
     }
+    public function countCommentsId($post_id) {
+        $query = $this->db->prepare("
+        SELECT count(*) as total_comments
+        FROM comments
+        WHERE post_id = ?
+      ");
+  
+        $query->execute([$post_id]);
+
+        $count = $query->fetchAll( PDO::FETCH_ASSOC );
+        return $count;
+    
+    }
 
 }

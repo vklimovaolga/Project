@@ -48,11 +48,13 @@
                         <th>Imagem</th>
                         <th>Descrição</th>
                         <th>Data de criação</th>
+                        <th>Comentários</th>
                         <th>Gerir</th>
                     </tr>
                     
                     <?php
                         foreach($posts as $post) {
+
                             echo '<tr>
                                 <td>'.$post["post_id"].'</td>
                                 <td>'.$post["username"].'</td>
@@ -60,10 +62,13 @@
                                 <td><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="Imagem do post"></td>
                                 <td>'.$post["description"].'</td>
                                 <td>'.$post["created_at"].'</td>
+                            
+                                <td value="'. $post["post_id"].'">'.$post["total"].'</td>
                                 <td><a href="" >Apagar</a></td>
                             </tr>';
 
                         }
+                        
                     ?>
                 </table>
             </div>

@@ -64,10 +64,13 @@ require_once("base.php");
 
      public function getPosts(){
       $query = $this->db->prepare("
-          SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, pf.picture
+          SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, pf.picture, count(p.post_id) as total
           FROM posts AS p
           INNER JOIN users AS u USING(user_id)
           INNER JOIN profiles AS pf USING(user_id)
+          INNER JOIN comments AS c USING(user_id)
+          WHERE p.post_id = c.post_id
+          GROUP BY p.post_id
       ");
 
       $query->execute();

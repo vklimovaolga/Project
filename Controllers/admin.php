@@ -63,6 +63,8 @@ if($option === "manage_posts") {
     
     $admin = $model->get($option);
     $posts = $model->getPosts();
+    $model = new AdminPanel();
+    $comment = $model->countCommentsId($posts[1]["post_id"]);
     
 }
     
