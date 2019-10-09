@@ -35,10 +35,10 @@
     <footer>
       <div class="footer">
           <ul>
-              <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
-              <li><a href="">Sobre</a></li>
-              <li><a href="">Declaração de Privacidade</a></li>
-              <li><a href="">Termos de Serviço</a></li>
+            <li>©2019 <a href="https://www.flag.pt/">Flag</a></li>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Declaração de Privacidade</a></li>
+            <li><a href="">Termos de Serviço</a></li>
           </ul>
       </div>
     </footer>

@@ -16,25 +16,25 @@
         </div>
         <nav>
             <?php
-            if(!isset($_SESSION["user_id"])) {
-                echo '
-                <a href="'. ROOT .'access/register">Criar Conta</a>
-                <a href="'. ROOT .'access/login">Login</a>
-                ';
-            }
-            else {
-              
-              foreach ($data as $profile) {
-                if(
-                  isset($_SESSION["user_id"]) && 
-                  $profile["user_id"] === $_SESSION["user_id"]
-                  ){
-                    echo '<a href="'.ROOT.'posts/create_post">Criar Post</a>'; 
-                    echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
-                  }
-                }
-                echo '<a href="'. ROOT .'access/logout">Logout</a>';
+              if(!isset($_SESSION["user_id"])) {
+                  echo '
+                  <a href="'. ROOT .'access/register">Criar Conta</a>
+                  <a href="'. ROOT .'access/login">Login</a>
+                  ';
               }
+              else {
+                
+                foreach ($data as $profile) {
+                  if(
+                    isset($_SESSION["user_id"]) && 
+                    $profile["user_id"] === $_SESSION["user_id"]
+                    ){
+                      echo '<a href="'.ROOT.'posts/create_post">Criar Post</a>'; 
+                      echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
+                    }
+                  }
+                  echo '<a href="'. ROOT .'access/logout">Logout</a>';
+                }
             ?>
         </nav>
       </div>

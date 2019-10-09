@@ -23,8 +23,8 @@ class Profiles extends Base {
           $filename = date("YmdHis") ."_". mt_rand(100000, 999999).".".$file_extension;
 
           $query = $this->db->prepare("
-          INSERT INTO profiles (description, url, user_id, picture)
-          VALUES (?, ?, ?, '".$filename."')
+            INSERT INTO profiles (description, url, user_id, picture)
+            VALUES (?, ?, ?, '".$filename."')
           ");
 
           $query->execute([
@@ -35,7 +35,7 @@ class Profiles extends Base {
             
           move_uploaded_file($_FILES["picture"]["tmp_name"], "uploads/".$filename);
           header("Location: " .ROOT. "create/profile");
-              return "ok";
+          return "ok";
       }
       else{
           return "Preencha os campos";
