@@ -16,18 +16,30 @@
                 </div>
                 <nav>
                     <?php
-                    if(!isset($_SESSION["user_id"])) {
+                    if(isset($_SESSION["admin_id"])){
+                        echo '<a href="'.ROOT.'admin/admin_home/'.$admin[0]["admin_id"].'">Home</a> ';
+
+                    }
+                    if(!isset($_SESSION["user_id"]) && !isset($_SESSION["admin_id"])) {
+
                         echo '
                             <a href="'.ROOT.'access/register">Criar Conta</a>
                             <a href="'.ROOT.'access/login">Login</a>
                         ';
                     }
                     else {
-                        if(!isset($data[0]["profile_id"])) {
+                        if(!isset($data[0]["profile_id"]) && !isset($_SESSION["admin_id"])) {
+
                             echo '<a href="'.ROOT.'create/create">Criar Perfil</a>';
+
                         }else{
-                            echo '<a href="'.ROOT.'create/profile/'.$data[0]["user_id"].'">Perfil</a>';
+
+                            if(!isset($_SESSION["admin_id"])) {
+
+                                echo '<a href="'.ROOT.'create/profile/'.$data[0]["user_id"].'">Perfil</a>';
+                            }
                         }
+                        
                         echo '<a href="'.ROOT.'access/logout">Logout</a>';
                     }
                     ?>
