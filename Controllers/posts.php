@@ -46,7 +46,7 @@ if(in_array($url_parts[4], $options)) {
     
     if($url_parts[4] === "edit_post") {
         $model = new Post();
-        $data = $model->getPost($url_parts[5]);  
+        $data = $model->getPostId($url_parts[5]); 
 
         if(isset($_POST["send"])) {
             $message = $model->editPost($_POST);
