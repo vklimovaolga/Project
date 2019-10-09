@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>Criar Conta</title>
     <link rel="stylesheet" type="text/css" href="/PF/Project/css/register.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/PF/Project/css/home.css"> -->
-
   </head>
   <body>
     <?php 
@@ -42,8 +40,7 @@
         </div>
         <div class="buttonw">
             <button type="submit" name="send">Registar</button>
-      
-            <a href="<?php echo ROOT;?>">Voltar</a>
+            <a href="<?php echo ROOT;?>" class="backbutton">Voltar</a>
         </div>
       </form>
 

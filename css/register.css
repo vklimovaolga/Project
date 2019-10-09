@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 
-/*                              */
+/*               MAIN               */
 
 html { font-size: 62.5%; }
 
@@ -61,16 +61,14 @@ body {
 h1 {
 	font-size: 4rem;
 	text-align: center;
-	/* border: 1px solid red; */
 	padding: 15px;
 	color: #f1f1f1;
 	margin-top: 70px;
 }
 
 .wrapper {
-	width: 400px;
+	width: 370px;
 	margin: 0 auto;
-	/* border: 1px solid red; */
 	background-color: #222222;
 	box-shadow: 3px 3px 1px 1px #000;
 }
@@ -80,12 +78,10 @@ h1 {
 }
 
 .form div{
-	/* border: 1px solid blue; */
 	padding: 20px 0px 0px 20px;
 }
 
 .form label {
-	/* border: 1px solid green; */
 	display: flex;
 	flex-direction: column;
 }
@@ -97,7 +93,14 @@ h1 {
 	width: 250px;
 	height: 40px;
 	margin-top: 15px;
-	/* margin-left: 40px; */
+	color: #FFF;
+	padding-left: 10px;
+}
+
+.buttonw {
+	margin-top: 30px;
+	display: inline-block;
+	margin-bottom: 30px;
 }
 
 .form button {
@@ -107,19 +110,24 @@ h1 {
 	border: none;
 	border-radius: 2px;
 	background-color: #7ac043;
-	margin-bottom: 40px;
 	color: #FFF;
-	margin-top: 35px;
 	margin-right: 30px;
 }
 
-.buttonw {
-	display: inline;
-
+.backbutton {
+	text-decoration: none;
+	padding: 10px 25px 10px 25px;
+	font-size: 1.5rem;
+	width: 100px;
+	border: none;
+	border-radius: 2px;
+	background-color: gray;
+	color: #FFF;
 }
 
 
 /*          FOOTER          */
+
 .footer {
     background-color: #222;
     color: #f1f1f1;
@@ -144,3 +152,7 @@ h1 {
     color: #f1f1f1; 
     text-decoration: none;
 }
+
+
+/* 			LOGIN			 */
+

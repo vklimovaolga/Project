@@ -36,6 +36,20 @@ require_once("base.php");
         return $posts;
 
     }
+    public function postList(){
+        $query = $this->db->prepare("
+            SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, s.picture
+            FROM posts AS p
+            INNER JOIN users AS u USING(user_id)
+            INNER JOIN profiles AS s USING(user_id)
+        ");
+
+        $query->execute();
+  
+        $posts = $query->fetchAll( PDO::FETCH_ASSOC );
+        return $posts;
+
+    }
 
     public function createPost($data){
         $allowed_types = [

@@ -45,25 +45,17 @@
                 <ul>
                     <li><a href="">Populares</a></li>
                     <li><a href="">Mais recentes</a></li>
-                    <li><a href="">Seguidos</a></li>
                 </ul>
             </nav>
             <div class="pic">
-                <ul>   
-                   <li><a href=""><img src="uploads/1.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/1.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
-                   <li><a href=""><img src="uploads/2.png" alt="img"></a></li>
+                <ul>
+                    <?php
+                        foreach($posts as $post) {
+                            echo '
+                                <li><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="'.$post["title"].'"></li>
+                            ';
+                        }
+                    ?>
                 </ul>
             </div>
         </main>
