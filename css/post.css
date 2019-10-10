@@ -2,44 +2,47 @@
     width: 1500px;
     margin: 0 auto;
     display: flex;
-    
 }
+
 h1 {
     font-size: 4rem;
     color: #f1f1f1;
     padding: 30px;
 }
 
-h2 {
+h2 a {
+    display: block;
     font-size: 3rem;
     color: #7ac043;
-    padding: 30px;
+    margin-top: 30px;
+    text-decoration: none;
 }
+
 .description {
     color: #f1f1f1;
     font-size: 2rem;
     margin: 40px;
 }
+
 .post-wleft {
     width: 1000px;
 }
 
-.post-wleft img{
+.post-wleft img {
     width: 50vw;
-
 }
+
 .post-wright {
     width: 500px;
     margin-left: 50px;
     background-color: #a7c09318;
-   
 }
+
 .post-wsright {
     display: flex;
     margin: 100px 0px 50px 50px;
-    /* background-color: #f1f1f1; */
-
 }
+
 .post-wsright img {
     border-radius: 100%;
     width: 100px;
@@ -52,10 +55,12 @@ form {
     display: flex;
     padding: 20px;
 }
+
 form div label {
     font-size: 1.9rem;
     margin-right: 20px;
 }
+
 form div label input[type="text"] {
     width: 240px;
     height: 40px;
@@ -63,6 +68,7 @@ form div label input[type="text"] {
     border: 1px solid #171717;
     margin-left: 5px;
 }
+
 .form-button {
     background-color: #7ac043;
     font-size: 1.4rem;
@@ -72,44 +78,25 @@ form div label input[type="text"] {
     border: 1px solid #4f7c2c;
 }
 
-/* #modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 600px;
-    top: 200px;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-
-}
-
-#modal div{
-    width: 200px;
-    background-color: #f1f1f1;
-    padding: 30px 30px 10px 30px;
-    color: black;
-} */
-
-.comment-wrapper{
+.comment-wrapper {
     width: 400px;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
+
 #comment-info {
     border-top: 1px solid #171717;
     padding: 0px 20px 0px 20px;
 }
-#comment-info p{
+
+#comment-info p {
     margin: 20px 0px 20px 0px;
     font-size: 1.9rem;
-    
-    
 }
 
-.comment-username {
+.comment-username a {
+    text-decoration: none;
     color: #7ac043;
     font-size: 2.5rem;
 }
@@ -129,7 +116,6 @@ form div label input[type="text"] {
     background-color: gray;
     border: 1px solid rgb(53, 50, 50);
     margin-right: 20px;
-    
 }
 
 #deleteComment {
@@ -137,7 +123,6 @@ form div label input[type="text"] {
     border: 1px solid rgb(65, 10, 10);
 }
 
-
-#newcomment{
+#newcomment {
     display: none;
 }

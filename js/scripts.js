@@ -1,53 +1,36 @@
 document.addEventListener("DOMContentLoaded", () =>{
 
-    const buttonDelete = document.querySelector("#deleteB");
+    const buttonDelete = document.getElementById("deleteB");
     const editButton = document.querySelectorAll("#editButton");
-    const cancelButton = document.querySelector("#cancelButton");
-    const confirmButton = document.querySelector("#confirmButton");
-    const modal = document.getElementById("modal");
 
-    function deleteConfirm() {
-        let confirmm = confirm("Quer mesmo apagar?");
-
-        if(confirmm){
-           
-            fetch("../delete_post/"+buttonDelete.value, {
-                method: "DELETE", 
-                mode: "same-origin", 
-                cache: "no-cache",
-                credentials: "same-origin", 
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                redirect: "follow", 
-                referrer: "no-referrer", 
-                body: "",
-            })
-            .then(response => response.json()).then(
-                redirect => {
-                    window.location.replace("http://localhost/PF/Project/");
-                }
-            ) 
-        }
-    }
-
-    buttonDelete.addEventListener("click", () => {
+    if(buttonDelete){
+        buttonDelete.addEventListener("click", () => {
         
-        deleteConfirm();
-    });
+            let confirmm = confirm("Quer mesmo apagar?");
     
-    // cancelButton.addEventListener("click", (e) => {
-    //     modal.style.display = "none";
-    //     window.location.reload();
-        
-    // });
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+            if(confirmm){
+               
+                fetch("../delete_post/"+buttonDelete.value, {
+                    method: "DELETE", 
+                    mode: "same-origin", 
+                    cache: "no-cache",
+                    credentials: "same-origin", 
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", 
+                    referrer: "no-referrer", 
+                    body: "",
+                })
+                .then(response => response.json()).then(
+                    redirect => {
+                        window.location.replace("http://localhost/PF/Project/");
+                    }
+                ) 
+            }
+        });
+
     }
-    
 
     for(let i = 0; i< editButton.length; i++) {
         
