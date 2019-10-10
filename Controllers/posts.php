@@ -18,8 +18,11 @@ if(in_array($url_parts[4], $options)) {
         $model = new Post();
         if(isset($url_parts[5])) {
             $data = $model->getPostId($url_parts[5]);
-            $model1 = new Profiles();
-            $datas = $model1->getProfile($url_parts[5]);
+            if(isset($_SESSION["user_id"])){
+                $model1 = new Profiles();
+                $datas = $model1->getProfile($url_parts[5]);
+
+            }
             if(isset($_POST["send"])){
                 $model = new Comment();
                 $message = $model->createComment($_POST);

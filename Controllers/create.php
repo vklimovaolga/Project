@@ -6,9 +6,9 @@ require_once("models/admins.php");
   
 $options = [ "profile", "edit", "create" ];
 
-if(in_array($url_parts[4], $options)){
+if(in_array($url_parts[4], $options)) {
   
-  if(isset($_POST["send"])){
+  if(isset($_POST["send"])) {
     
     $model = new Profiles();
     
@@ -16,7 +16,8 @@ if(in_array($url_parts[4], $options)){
   }
   
   
-  if($url_parts[4] === "profile"){
+  if($url_parts[4] === "profile") {
+
     if(isset($url_parts[5])){
 
       $model = new Profiles();
@@ -25,13 +26,17 @@ if(in_array($url_parts[4], $options)){
       $model = new Post();
       $posts = $model->getPost($url_parts[5]);
 
-      $model = new Admins();
-      $admin = $model->get($url_parts[4]);
-  
+      if(!isset($_SESSION["user_id"])){
+
+        $model = new Admins();
+        $admin = $model->get($url_parts[4]);
+
+      }
     }
   }
   
-  if($url_parts[4] === "edit"){
+  if($url_parts[4] === "edit") {
+    
     $model = new Profiles();
     $data = $model->getProfile($url_parts[4]);
     
