@@ -41,9 +41,9 @@
                 <?php 
                     foreach($admins as $admin) {
                         echo '
-                            <li>'.$admin["username"].'</li>
+                            <li>'.ucfirst($admin["username"]).'</li>
                             <li>Email: '.$admin["email"].'</li>
-                            <li>Data de registo: '.$admin["registration_date"].'</li>
+                            <li>Data de registo: '.strftime("%e %b %Y - %H:%M", strtotime($admin["registration_date"])).'</li>
                             ';
                         }
                 ?>
@@ -52,18 +52,13 @@
             <div class="right-wrapper">
                 <h1>Painel de Controle</h1>
                 <ul>
-                    <li>Utilizadores: <?php echo $users[0]["total_users"]; ?></li>
-                    <li>Perfis: <?php echo $profiles[0]["total_profiles"]; ?></li>
-                    <li>Posts: <?php echo $posts[0]["total_posts"]; ?></li>
-                    <li>Comentarios: <?php echo $comments[0]["total_comments"]; ?></li>
+                    <li><a class="manageLink" href="<?php echo ROOT.'admin/manage_profiles';?>">Utilizadores: <?php echo $users[0]["total_users"]; ?></a></li>
+                    <li><a class="manageLink" href="<?php echo ROOT.'admin/manage_profiles';?>">Perfis: <?php echo $profiles[0]["total_profiles"]; ?></a></li>
+                    <li><a class="manageLink" href="<?php echo ROOT.'admin/manage_posts';?>">Posts: <?php echo $posts[0]["total_posts"]; ?></a></li>
+                    <li><a class="manageLink" href="<?php echo ROOT.'admin/manage_posts';?>">Comentarios: <?php echo $comments[0]["total_comments"]; ?></a></li>
                 </ul>
             </div>
-        
-        
-            
         </main>
-       
     </div>
-    
   </body>
 </html>

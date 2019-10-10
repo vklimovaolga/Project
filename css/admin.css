@@ -31,10 +31,8 @@
     margin-bottom: 30px;
 
 }
-/* .right-wrapper ul {
-      
-} */
-.right-wrapper ul li{
+
+.right-wrapper ul li {
     padding: 30px;
     margin-bottom: 10px;
     background-color: #79c0436b;
@@ -84,7 +82,7 @@
     border-radius: 50%;
 }
 
-#aDeletePost, #aDeleteProfile {
+#aDeletePost, #aDeleteProfile, #aDeleteComment {
     text-decoration: none;
     font-size: 1.4rem;
     color: #f1f1f1;
@@ -94,4 +92,28 @@
     border-radius: 4px;
     padding: 10px 20px 10px 20px;
 }
+
+.username {
+    text-decoration: none;
+    color: rgb(78, 117, 78);
+}
+
+.manageComments {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #f1f1f1;
+    padding: 10px;
+    background-color: rgb(64, 95, 64);
+    border: 1px solid rgb(21, 65, 21);
+    border-radius: 4px;
+    padding: 10px 20px 10px 20px;
+
+}
+
+.manageLink {
+    text-decoration: none;
+    color: #bbb;
+
+}
+
 

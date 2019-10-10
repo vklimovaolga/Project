@@ -2,9 +2,10 @@
 require_once("models/admins.php");
 require_once("models/admin_panel.php");
 require_once("models/profile.php");
+require_once("models/comments.php");
 
 
-$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts", "delete_post", "delete_profile"];
+$options = ["admin_home", "admin_login", "admin_logout", "manage_profiles", "manage_posts", "manage_comments", "delete_post", "delete_profile", "delete_comment"];
 
 $option = $options[0];
 if(isset($url_parts[4]) && in_array($url_parts[4], $options)) {
@@ -65,13 +66,29 @@ if($option === "manage_posts") {
     $admin = $model->get($option);
     $posts = $model->getPosts();
 }
+if($option === "manage_comments") {
+    
+    $admin = $model->get($option);
+    $model = new Comment();
+    $comments = $model->getComments($url_parts[5]);
 
-if($option === "delete_post"){
+}
+
+if($option === "delete_post") {
+
     $response = $model->deletePost($url_parts[5]);
     die($response);
 }
-if($option === "delete_profile"){
+
+if($option === "delete_profile") {
+
     $response = $model->deleteProfile($url_parts[5]);
+    die($response);
+}
+
+if($option === "delete_comment") {
+
+    $response = $model->deleteComment($url_parts[5]);
     die($response);
 }
     

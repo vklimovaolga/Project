@@ -20,8 +20,7 @@
                     <?php
                     if(!isset($_SESSION["admin_id"])) {
                         echo '
-                        <a href="'. ROOT .'admin/admin_register">Criar Conta</a>
-                        <a href="'. ROOT .'admin/admin_login">Login</a>
+                            <a href="'. ROOT .'admin/admin_login">Login</a>
                         ';
                     }
                     else {
@@ -50,23 +49,26 @@
                         <th>Descrição</th>
                         <th>Data de criação</th>
                         <th>Comentários</th>
+                        <th>Gerir Comentarios</th>
                         <th>Gerir</th>
                     </tr>
                     
                     <?php
                         foreach($posts as $post) {
 
-                            echo '<tr data-post_id="'.$post["post_id"].'">
-                                <td>'.$post["post_id"].'</td>
-                                <td>'.$post["username"].'</td>
-                                <td>'.$post["title"].'</td>
-                                <td><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="Imagem do post"></td>
-                                <td>'.$post["description"].'</td>
-                                <td>'.$post["created_at"].'</td>
-                                <td>'.$post["total"].'</td>
-                                <td><button type="button" name="delete" id="aDeletePost">Apagar</button></td>
-                            </tr>';
-
+                            echo '
+                                <tr data-post_id="'.$post["post_id"].'">
+                                    <td>'.$post["post_id"].'</td>
+                                    <td><a href="'.ROOT.'create/profile/'.$post["user_id"].'" class="username">'.ucfirst($post["username"]).'</a></td>
+                                    <td>'.$post["title"].'</td>
+                                    <td><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="Imagem do post"></td>
+                                    <td>'.$post["description"].'</td>
+                                    <td>'.strftime("%e %b %Y - %H:%M", strtotime($post["created_at"])).'</td>
+                                    <td>'.$post["total"].'</td>
+                                    <td><a href="'.ROOT.'admin/manage_comments/'.$post["post_id"].'" class="manageComments">Gerir</a></td>
+                                    <td><button type="button" name="delete" id="aDeletePost">Apagar</button></td>
+                                </tr>
+                            ';
                         }
         
                         

@@ -65,7 +65,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const aDeleteComment = document.querySelectorAll("#aDeleteComment");
 
+    for(let i = 0; i < aDeleteComment.length; i++) {
 
+        aDeleteComment[i].addEventListener("click", () => {
+            let deleteComment = aDeleteComment[i].parentNode.parentNode.dataset.comment_id;
+            console.log(deleteComment);
+
+            let confirmm = confirm("Quer mesmo apagar?");
+                
+            if(confirmm){
+                fetch("../delete_comment/"+deleteComment, {
+                    method: "DELETE", 
+                    mode: "same-origin", 
+                    cache: "no-cache",
+                    credentials: "same-origin", 
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    redirect: "follow", 
+                    referrer: "no-referrer", 
+                    body: "",
+                })
+                .then(response => response.json())
+
+                aDeleteComment[i].parentNode.parentNode.style.display = "none";
+
+            }
+
+        });
+    }
 
 });

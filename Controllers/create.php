@@ -1,6 +1,7 @@
 <?php 
 require_once("models/profile.php");
 require_once("models/posts.php");
+require_once("models/admins.php");
 
   
 $options = [ "profile", "edit", "create" ];
@@ -23,6 +24,9 @@ if(in_array($url_parts[4], $options)){
 
       $model = new Post();
       $posts = $model->getPost($url_parts[5]);
+
+      $model = new Admins();
+      $admin = $model->get($url_parts[4]);
   
     }
   }

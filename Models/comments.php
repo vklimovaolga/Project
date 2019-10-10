@@ -17,7 +17,6 @@ require_once("base.php");
   
         $comments = $query->fetchAll( PDO::FETCH_ASSOC );
         return $comments;
-        // print_r($comments);
 
     }
     
