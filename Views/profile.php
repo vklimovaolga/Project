@@ -46,7 +46,7 @@
     <main>
       <div class="wrapper-profile">
         <?php
-            foreach($data as $profile){
+            foreach($data as $profile) {
               echo '
                 <div class="profile-container">
                   <div class="profile-picture">
@@ -71,7 +71,7 @@
       <div class="pic">
         <ul>  
           <?php
-              foreach($posts as $post){
+              foreach($posts as $post) {
                 echo '
                   <li><a href="'.ROOT.'posts/view_post/'.$post["post_id"].'"><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="img"></a></li>
                 ';

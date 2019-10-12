@@ -1,53 +1,51 @@
 <?php
 require_once("base.php");
 
- class Users extends Base {
+class Users extends Base {
 
-    public function get(){
-        $query = $this->db->prepare("
-          SELECT user_id, username, email, registration_date
-          FROM users
-        ");
-    
-        $query->execute();
-        $user = $query->fetchAll( PDO::FETCH_ASSOC );
-        return $user;
-      }
+  public function get() {
+    $query = $this->db->prepare("
+      SELECT user_id, username, email, registration_date
+      FROM users
+    ");
+
+    $query->execute();
+    $user = $query->fetchAll( PDO::FETCH_ASSOC );
+    return $user;
+  }
    
   public function login($data) {
+    if(
+      !empty($data["username"]) &&
+      !empty($data["password"])
+      
+    ){
+      $query = $this->db->prepare("
+        SELECT user_id, password
+        FROM users
+        WHERE username = ?
+      ");
+
+      $query->execute([
+        $data["username"]
+      ]);
+
+      $user = $query->fetchAll( PDO::FETCH_ASSOC );
+
       if(
-        !empty($data["username"]) &&
-        !empty($data["password"])
-        
+        !empty($user) &&
+        password_verify($data["password"], $user[0]["password"] )
       ){
-        $query = $this->db->prepare("
-          SELECT user_id, password
-          FROM users
-          WHERE username = ?
-        ");
-
-        $query->execute([
-          $data["username"]
-        ]);
-
-        $user = $query->fetchAll( PDO::FETCH_ASSOC );
-
-        if(
-          !empty($user) &&
-          password_verify($data["password"], $user[0]["password"] )
-        ){
-          $_SESSION["user_id"] = $user[0]["user_id"];
-          return true;
-        }
-        else {
-          return false;
-          echo "erro";
-        }
-    
-    }
-
-
+        $_SESSION["user_id"] = $user[0]["user_id"];
+        return true;
+      }
+      else {
+        return false;
+        echo "erro";
+      }
   }
+}
+
   public function register($data) {
     if(
       !empty($data["username"]) &&

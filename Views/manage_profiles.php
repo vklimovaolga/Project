@@ -51,7 +51,6 @@
                         <th>Data de criação</th>
                         <th>Gerir</th>
                     </tr>
-                    
                     <?php
                         foreach($profiles as $profile) {
                             echo '<tr data-profile_id="'.$profile["profile_id"].'">

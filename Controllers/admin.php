@@ -61,11 +61,13 @@ if($option === "manage_profiles") {
 
     
 }
+
 if($option === "manage_posts") {
     
     $admin = $model->get($option);
     $posts = $model->getPosts();
 }
+
 if($option === "manage_comments") {
     
     $admin = $model->get($option);
@@ -92,7 +94,6 @@ if($option === "delete_comment") {
     die($response);
 }
     
-
 if($option === "admin_logout" ) {
 
     session_destroy();
@@ -103,6 +104,5 @@ if($option === "admin_logout" ) {
 
 require("views/".$option.".php");
   
-
 
 ?>

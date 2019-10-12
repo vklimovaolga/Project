@@ -52,10 +52,8 @@
                         <th>Gerir Comentarios</th>
                         <th>Gerir</th>
                     </tr>
-                    
                     <?php
                         foreach($posts as $post) {
-
                             echo '
                                 <tr data-post_id="'.$post["post_id"].'">
                                     <td>'.$post["post_id"].'</td>
@@ -70,8 +68,6 @@
                                 </tr>
                             ';
                         }
-        
-                        
                     ?>
                 </table>
             </div>

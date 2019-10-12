@@ -16,7 +16,7 @@
                 </div>
                 <nav>
                     <?php
-                    if(isset($_SESSION["admin_id"])){
+                    if(isset($_SESSION["admin_id"])) {
                         echo '<a href="'.ROOT.'admin/admin_home/'.$admin[0]["admin_id"].'">Home</a> ';
 
                     }
@@ -32,7 +32,7 @@
 
                             echo '<a href="'.ROOT.'create/create">Criar Perfil</a>';
 
-                        }else{
+                        }else {
 
                             if(!isset($_SESSION["admin_id"])) {
 
@@ -46,11 +46,11 @@
                 </nav>
             </div>
         </header>
-        <main>
+        <main class="home-wrapper">
             <nav class="nav-pic">
                 <ul>
-                    <li><a href="">Populares</a></li>
-                    <li><a href="">Mais recentes</a></li>
+                    <!-- <li><a href="">Populares</a></li>
+                    <li><a href="">Mais recentes</a></li> -->
                 </ul>
             </nav>
             <div class="pic">
@@ -58,7 +58,7 @@
                     <?php
                         foreach($posts as $post) {
                             echo '
-                                <li><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="'.$post["title"].'"></li>
+                                <li><a href="'.ROOT.'posts/view_post/'.$post["post_id"].'"><img src="/PF/Project/post_uploads/'.$post["image"].'" alt="'.$post["title"].'"></a></li>
                             ';
                         }
                     ?>

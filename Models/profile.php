@@ -2,7 +2,7 @@
 require_once("base.php");
 
 class Profiles extends Base {
-  public function create($data){
+  public function create($data) {
     $allowed_types = [
       "jpg" => "image/jpeg",
       "png" => "image/png"
@@ -15,7 +15,6 @@ class Profiles extends Base {
           isset($_SESSION["user_id"]) &&
           isset($_FILES["picture"]) &&
           $_FILES["picture"]["size"] > 0 &&
-          //  $_FILES["picture"]["size"] <= 2000000 &&
           $_FILES["picture"]["error"] === 0 &&
           in_array($_FILES["picture"]["type"], $allowed_types)
       ){
@@ -42,7 +41,7 @@ class Profiles extends Base {
       }
   }
 
-  public function get($user_id){
+  public function get($user_id) {
     $query= $this->db->prepare("
       SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
       FROM profiles AS p 
@@ -58,7 +57,7 @@ class Profiles extends Base {
     return $profile;
 
   }
-  public function getP(){
+  public function getP() {
     $query= $this->db->prepare("
       SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture, p.created_at
       FROM profiles AS p 
@@ -73,7 +72,7 @@ class Profiles extends Base {
 
   }
 
-  public function getProfile($profile_id){
+  public function getProfile($profile_id) {
       $query= $this->db->prepare("
         SELECT p.description, p.url, p.profile_id, p.user_id, u.username, p.picture
         FROM profiles AS p 
@@ -89,7 +88,7 @@ class Profiles extends Base {
       return $profile;
     }
 
-    public function edit($data){
+    public function edit($data) {
       $allowed_types = [
         "jpg" => "image/jpeg",
         "png" => "image/png"
@@ -101,7 +100,6 @@ class Profiles extends Base {
         isset($_SESSION["user_id"]) &&
         isset($_FILES["picture"]) &&
         $_FILES["picture"]["size"] > 0 &&
-        //  $_FILES["picture"]["size"] <= 2000000 &&
         $_FILES["picture"]["error"] === 0 &&
         in_array($_FILES["picture"]["type"], $allowed_types)
       ){

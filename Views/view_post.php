@@ -33,12 +33,12 @@
             <?php
                       }
                   } 
-                  if(!isset($_SESSION["admin_id"])){
+                  if(!isset($_SESSION["admin_id"])) {
 
                     echo '<a href="'.ROOT.'create/profile/'.$datas[0]["user_id"].'">Perfil</a>';
                   }
                     
-                echo '<a href="'.ROOT.'access/logout">Logout</a>';
+                  echo '<a href="'.ROOT.'access/logout">Logout</a>';
                 }
             ?>
             </nav>

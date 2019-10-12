@@ -1,8 +1,8 @@
 <?php
 require_once("base.php");
 
- class Post extends Base {
-    public function getPostId($post_id){
+class Post extends Base {
+    public function getPostId($post_id) {
         $query = $this->db->prepare("
             SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, pf.picture
             FROM posts AS p
@@ -19,7 +19,8 @@ require_once("base.php");
         return $posts;
 
     }
-    public function getPost($user_id){
+
+    public function getPost($user_id) {
         $query = $this->db->prepare("
             SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, s.picture
             FROM posts AS p
@@ -36,12 +37,13 @@ require_once("base.php");
         return $posts;
 
     }
-    public function postList(){
+    public function postList() {
         $query = $this->db->prepare("
             SELECT p.post_id, p.title, p.image, p.description, p.created_at, u.user_id, u.username, s.picture
             FROM posts AS p
             INNER JOIN users AS u USING(user_id)
             INNER JOIN profiles AS s USING(user_id)
+            ORDER BY p.created_at DESC  
         ");
 
         $query->execute();
@@ -51,7 +53,7 @@ require_once("base.php");
 
     }
 
-    public function createPost($data){
+    public function createPost($data) {
         $allowed_types = [
             "jpg" => "image/jpeg",
             "png" => "image/png"
@@ -87,11 +89,12 @@ require_once("base.php");
             return "ok";
 
         }
-        else{
+        else {
             return "Preencha os campos";
         }
     }
-    public function editPost($data){
+
+    public function editPost($data) {
         $allowed_types = [
             "jpg" => "image/jpeg",
             "png" => "image/png"
@@ -128,7 +131,7 @@ require_once("base.php");
             return "ok";
 
         }
-        else{
+        else {
             return "Preencha os campos";
         }
     }
@@ -146,7 +149,7 @@ require_once("base.php");
             $_SESSION["user_id"]
         ]);
 
-        if($result){
+        if($result) {
             return json_encode([
                 "status" => "Ok",
                 "message" => "Processo concluido com sucesso"
@@ -160,16 +163,7 @@ require_once("base.php");
             ]);
 
         }
-
-
     }
  }
-
- 
-
-
-
-
-
 
 ?>

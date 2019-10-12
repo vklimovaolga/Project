@@ -25,10 +25,7 @@
               else {
                 echo '<a href="'. ROOT .'create/profile/'.$data[0]["user_id"].'">Perfil</a>';
                 foreach ($data as $profile) {
-                  if(
-                    isset($_SESSION["user_id"]) && 
-                    $profile["user_id"] === $_SESSION["user_id"]
-                  ){
+                  if(isset($_SESSION["user_id"]) && $profile["user_id"] === $_SESSION["user_id"]) {
                     echo '<a href="'.ROOT.'create/edit/'.$profile["user_id"].'">Editar Perfil</a>';
                   }
                 }

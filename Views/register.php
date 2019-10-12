@@ -7,7 +7,7 @@
   </head>
   <body>
     <?php 
-      if(isset($status) && $status === false){
+      if(isset($status) && $status === false) {
         echo "<p>Preencha todos os campos correctamente, password tem que ter no minimo 6 caracteres</p>";
       }
     ?>
@@ -43,7 +43,6 @@
             <a href="<?php echo ROOT;?>" class="backbutton">Voltar</a>
         </div>
       </form>
-
     </div>
     <footer>
       <div class="footer">

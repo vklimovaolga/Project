@@ -32,6 +32,10 @@ if(in_array($url_parts[4], $options)) {
         $admin = $model->get($url_parts[4]);
 
       }
+      if(!isset($url_parts[5]) == $data) {
+        header("HTTP/1.1 404 Not Found");
+        die("404 - Pagina não existe");
+      }
     }
   }
   

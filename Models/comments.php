@@ -1,7 +1,7 @@
 <?php
 require_once("base.php");
 
- class Comment extends Base {
+class Comment extends Base {
     public function getComments($post_id) {
         $query = $this->db->prepare("
             SELECT c.user_id, c.comment_id, c.post_id, c.message, c.post_date, c.parent_id, u.username
@@ -11,15 +11,15 @@ require_once("base.php");
         ");
 
         $query->execute([
-           $post_id,
-           $post_id
-          ]);
-  
+            $post_id,
+            $post_id
+            ]);
+
         $comments = $query->fetchAll( PDO::FETCH_ASSOC );
         return $comments;
 
     }
-    
+
     public function createComment($data) {
         if(
             !empty($data["message"]) &&
@@ -58,7 +58,7 @@ require_once("base.php");
             $_SESSION["user_id"]
         ]);
     }
-    
+
     public function deleteComment($comment_id) {
         $query = $this->db->prepare("
             DELETE FROM comments
@@ -73,5 +73,5 @@ require_once("base.php");
     }
 
 
-    
+
 }
